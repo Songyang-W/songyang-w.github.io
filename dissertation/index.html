@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>My PhD Dissertation | William (Songyang) Wang</title>
+  <meta name="description" content="Mapping a memory circuit, synapse by synapse: two-photon imaging and electron microscopy connectomics of the mouse somatosensory cortex. Ph.D. dissertation, Boston University, 2026.">
+  <link rel="canonical" href="https://songyang-w.github.io/dissertation/">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0f14" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="William (Songyang) Wang">
+  <meta property="og:title" content="Mapping a memory circuit, synapse by synapse">
+  <meta property="og:description" content="My PhD dissertation: recording neurons in a behaving mouse, then mapping the wiring between those same neurons with electron microscopy.">
+  <meta property="og:url" content="https://songyang-w.github.io/dissertation/">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <script>try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-head">
+    <div class="inner">
+      <a class="logo" href="../">William <span class="alt">(Songyang)</span> Wang</a>
+      <nav class="nav" aria-label="Main">
+        <a href="../#timeline-section" class="optional">Timeline</a>
+        <a href="./" aria-current="page">PhD Dissertation</a>
+        <a href="../#skills" class="optional">Skills</a>
+        <a href="#contact">Contact</a>
+        <button type="button" class="theme-btn" id="theme-toggle">Dark</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero inner" aria-labelledby="page-title">
+      <div class="hero-text">
+        <p class="eyebrow">My PhD dissertation · Boston University · 2026</p>
+        <h1 id="page-title">Mapping a memory circuit, synapse by synapse</h1>
+        <p class="pitch">Can the part of the brain that feels touch also help hold a memory? I recorded neurons in a mouse's touch cortex while it remembered and compared touches, then mapped the wiring between those same neurons with electron microscopy.</p>
+        <p class="official"><em>Structural and Functional Organization of Somatosensory Cortex Microcircuits in Working-Memory-Related Processing.</em> Advisor: Jerry L. Chen.</p>
+      </div>
+      <figure class="hero-visual">
+        <canvas id="neuron" role="img" aria-label="Illustration of a neuron with synapses marked in red"></canvas>
+        <button type="button" class="motion-btn" id="neuron-toggle" aria-pressed="false">Pause</button>
+        <figcaption>Drag to rotate · illustration, my reconstructed neurons coming soon</figcaption>
+      </figure>
+    </section>
+
+    <section class="band inner" id="connectomics" aria-labelledby="connectomics-title">
+      <div class="section-head">
+        <p class="eyebrow">Background</p>
+        <h2 id="connectomics-title">What is connectomics?</h2>
+      </div>
+      <div class="prose">
+        <p>A connectome is a wiring diagram of a brain: every neuron and every connection between them. The thinnest wires, axons, can be about 100 nanometers across, far too small to follow with an ordinary light microscope.</p>
+        <p>So the tissue is cut into sections around 50 nanometers thick, every section is imaged with an electron microscope, and each neuron is traced through the stack, first by AI and then by people who fix its mistakes.</p>
+      </div>
+
+      <figure class="ladder" aria-labelledby="ladder-title">
+        <p class="eyebrow" id="ladder-title">Neurons per brain, log scale</p>
+        <div class="rung mapped"><div class="lab">Worm<small>mapped in 1986</small></div><div class="track"><div class="fill" style="width:20.7%"></div></div><div class="val">302</div></div>
+        <div class="rung mapped"><div class="lab">Fruit fly larva<small>mapped in 2023</small></div><div class="track"><div class="fill" style="width:29%"></div></div><div class="val">3,016</div></div>
+        <div class="rung mapped"><div class="lab">Adult fruit fly<small>mapped in 2024</small></div><div class="track"><div class="fill" style="width:42.9%"></div></div><div class="val">139,255</div></div>
+        <div class="rung"><div class="lab">Mouse<small>whole brain</small></div><div class="track"><div class="fill" style="width:65.4%"></div></div><div class="val">~71 million</div></div>
+        <div class="rung"><div class="lab">Human<small>whole brain</small></div><div class="track"><div class="fill" style="width:91.1%"></div></div><div class="val">~86 billion</div></div>
+        <div class="axis" aria-hidden="true"><span></span><div class="ticks"><span>1</span><span>10³</span><span>10⁶</span><span>10⁹</span><span>10¹²</span></div><span></span></div>
+        <p class="ladder-note"><b>Red</b> brains have complete wiring maps. Whole mouse and human brains are still far out of reach, so the field maps small pieces in great detail.</p>
+      </figure>
+
+      <div class="compare">
+        <div>
+          <h3>MICrONS, 2025</h3>
+          <p>One cubic millimeter of mouse visual cortex, about a grain of sand: roughly 200,000 cells, half a billion synapses and 1.6 petabytes of images.</p>
+        </div>
+        <div class="mine">
+          <h3>My volume</h3>
+          <p>Part of the mouse touch cortex (S1 and S2): 2,323 slices of 50 nm stacked about 116 µm deep, imaged at 3.75 nm per pixel. 657 TB of raw images.</p>
+        </div>
+      </div>
+      <p class="sources">Sources: White et al. 1986 · Winding et al., Science 2023 · Dorkenwald et al., Nature 2024 · Herculano-Houzel et al. 2006 · Azevedo et al. 2009 · <a href="https://www.microns-explorer.org/" target="_blank" rel="noopener">MICrONS Consortium, Nature 2025</a>.</p>
+    </section>
+
+    <section class="band inner" id="numbers" aria-labelledby="numbers-title">
+      <div class="section-head">
+        <p class="eyebrow">The dataset</p>
+        <h2 id="numbers-title">By the numbers</h2>
+      </div>
+      <div class="nums">
+        <div><b>5,061</b><span>neurons recorded in the living brain with two-photon imaging</span></div>
+        <div><b>2,323</b><span>ultrathin slices imaged by electron microscopy</span></div>
+        <div><b>657 TB</b><span>of raw electron microscopy images</span></div>
+        <div><b>9,710 h</b><span>of manual tracing and proofreading</span></div>
+        <div><b>495</b><span>neurons matched between the live recordings and the EM volume</span></div>
+        <div><b>415</b><span>neurons fully reconstructed with their synapses</span></div>
+      </div>
+    </section>
+
+    <section class="band inner" id="parts" aria-labelledby="parts-title">
+      <div class="section-head">
+        <p class="eyebrow">The story</p>
+        <h2 id="parts-title">Three parts, coming one at a time</h2>
+      </div>
+      <div class="parts">
+        <article>
+          <span class="step">Part 1 · The question</span>
+          <h3>Working memory</h3>
+          <p>What working memory is, why the touch cortex might hold it, and why nobody had looked at it synapse by synapse.</p>
+          <span class="soon">Coming soon</span>
+        </article>
+        <article>
+          <span class="step">Part 2 · The experiment</span>
+          <h3>From a whisker task to a wiring map</h3>
+          <p>A memory task for whiskers, two-photon imaging, then slicing, electron microscopy, AI segmentation and human proofreading.</p>
+          <span class="soon">Coming soon</span>
+        </article>
+        <article>
+          <span class="step">Part 3 · The findings</span>
+          <h3>The big picture</h3>
+          <p>In short: the local circuit is organized by which touch a neuron prefers, and memory-related signals are woven into that circuit instead of living in a separate module.</p>
+          <span class="soon">Details after publication</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="band inner" id="credits" aria-labelledby="credits-title">
+      <div class="section-head">
+        <p class="eyebrow">Team effort</p>
+        <h2 id="credits-title">Thanks and citation</h2>
+      </div>
+      <div class="prose">
+        <p>This work depended on many people: the Chen Lab at Boston University, the Lee Lab at Harvard Medical School, Zetta AI for automated segmentation, the Max Planck Florida Institute for Neuroscience and the Seung Lab at Princeton for electron microscopy support, and the undergraduate team who traced and proofread the neurons.</p>
+        <p class="cite">Wang, S. (2026). Structural and Functional Organization of Somatosensory Cortex Microcircuits in Working-Memory-Related Processing [Doctoral dissertation, Boston University].</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot" id="contact">
+    <div class="inner">
+      <div class="contact">
+        <p class="eyebrow">Contact</p>
+        <h2>Let's talk</h2>
+        <div class="email-row">
+          <span class="email" id="email-address">will.songyang.wang@gmail.com</span>
+          <button type="button" class="copy-btn" data-copy="email-address">Copy</button>
+          <span class="sr-only" role="status" id="copy-status"></span>
+        </div>
+      </div>
+      <div class="foot-links">
+        <a href="mailto:will.songyang.wang@gmail.com">Email</a>
+        <a href="https://github.com/Songyang-W" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/williamsywang" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <p class="fine">© 2026 William (Songyang) Wang</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/site.js"></script>
+  <script src="../assets/js/neuron.js"></script>
+</body>
+</html>

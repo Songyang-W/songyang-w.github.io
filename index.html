@@ -14,6 +14,8 @@
   <meta property="og:title" content="William (Songyang) Wang, Machine Learning Engineer">
   <meta property="og:description" content="Training pipelines and data infrastructure for large biological data, from petabyte-scale brain imaging to clinical computer vision.">
   <meta property="og:url" content="https://songyang-w.github.io/">
+  <meta property="og:image" content="https://songyang-w.github.io/assets/img/headshot-640.jpg">
+  <meta property="og:image:alt" content="Portrait of William (Songyang) Wang">
   <meta name="twitter:card" content="summary">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,8 +30,8 @@
     <div class="inner">
       <a class="logo" href="#top">William <span class="alt">(Songyang)</span> Wang</a>
       <nav class="nav" aria-label="Main">
-        <a href="#timeline-section">Timeline</a>
-        <a href="#featured" class="optional">Connectomics</a>
+        <a href="#timeline-section" class="optional">Timeline</a>
+        <a href="dissertation/">PhD Dissertation</a>
         <a href="#skills" class="optional">Skills</a>
         <a href="#contact">Contact</a>
         <button type="button" class="theme-btn" id="theme-toggle">Dark</button>
@@ -51,15 +53,16 @@
         </div>
         <div class="proof">
           <div><span class="value">657 TB</span><span class="label">EM volume taken through its full data lifecycle</span></div>
-          <div><span class="value">11×</span><span class="label">faster training after fixing GPU starvation</span></div>
+          <div><span class="value">&lt;50 ms</span><span class="label">real-time inference in an operating-room demo</span></div>
           <div><span class="value">7×</span><span class="label">faster stitching on a Slurm cluster</span></div>
           <div><span class="value">415</span><span class="label">neurons reconstructed by a team I led</span></div>
         </div>
       </div>
-      <figure class="hero-visual">
-        <canvas id="neuron" role="img" aria-label="Illustration of a neuron with synapses marked in red"></canvas>
-        <button type="button" class="motion-btn" id="neuron-toggle" aria-pressed="false">Pause</button>
-        <figcaption>Drag to rotate · illustration, my reconstructed neurons coming soon</figcaption>
+      <figure class="portrait">
+        <picture>
+          <source type="image/webp" srcset="assets/img/headshot-320.webp 320w, assets/img/headshot-640.webp 640w" sizes="(max-width: 860px) 132px, 340px">
+          <img src="assets/img/headshot-640.jpg" srcset="assets/img/headshot-320.jpg 320w, assets/img/headshot-640.jpg 640w" sizes="(max-width: 860px) 132px, 340px" width="640" height="640" alt="Portrait of William (Songyang) Wang">
+        </picture>
       </figure>
     </section>
 
@@ -67,29 +70,20 @@
       <div class="section-head">
         <p class="eyebrow">2016 → 2026</p>
         <h2 id="timeline-title">Timeline</h2>
-        <p>Ten years from biomedical engineering to machine learning. Open any entry for the details.</p>
+        <p>Where I studied and worked on the left, what I built there on the right. Open any card for the details.</p>
       </div>
-      <div class="chips" role="group" aria-label="Filter the timeline">
-        <button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>
-        <button type="button" class="chip" data-filter="industry" aria-pressed="false">Industry</button>
-        <button type="button" class="chip" data-filter="research" aria-pressed="false">Research</button>
-        <button type="button" class="chip" data-filter="project" aria-pressed="false">Projects</button>
-        <button type="button" class="chip" data-filter="education" aria-pressed="false">Education</button>
-        <button type="button" class="chip" data-filter="teaching" aria-pressed="false">Teaching</button>
-      </div>
-      <p class="count" id="tl-count" aria-live="polite"></p>
-      <ol class="tl" id="timeline"></ol>
+      <div class="tl2" id="timeline"></div>
       <noscript><p>The timeline needs JavaScript. My <a href="assets/William-Songyang-Wang-Resume.pdf">resume</a> has the same information.</p></noscript>
     </section>
 
     <section class="band inner" id="featured" aria-labelledby="featured-title">
       <div class="feature">
         <div class="feature-text">
-          <p class="eyebrow">Featured · Dissertation</p>
+          <p class="eyebrow">Featured · My PhD dissertation</p>
           <h2 id="featured-title">Mapping a memory circuit, synapse by synapse</h2>
           <p>A mouse learned to compare two touches separated by a delay. I recorded its neurons while it worked, then mapped the wiring between those same neurons from thousands of ultrathin slices of brain tissue, each more than a thousand times thinner than a hair.</p>
           <div class="actions">
-            <span class="soon">Full story coming soon</span>
+            <a class="btn primary" href="dissertation/">Open the dissertation page</a>
           </div>
         </div>
         <div class="feature-stats">
@@ -157,7 +151,7 @@
   </footer>
 
   <script src="data/timeline.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/neuron.js"></script>
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/timeline.js"></script>
 </body>
 </html>
