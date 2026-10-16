@@ -124,6 +124,7 @@
         var open = btn.getAttribute("aria-expanded") === "true";
         btn.setAttribute("aria-expanded", String(!open));
         panel.hidden = open;
+        drawConnectors();
       });
       card.appendChild(btn);
       card.appendChild(panel);
@@ -135,7 +136,7 @@
 
   /* Lane headings, then one row per year with a year marker and a cell per lane. */
   LANES.forEach(function (lane) {
-    root.appendChild(make("h3", "tl-lane-head tl-" + lane.key, lane.heading));
+    root.appendChild(make("div", "tl-lane-head tl-" + lane.key, lane.heading));
   });
 
   var years = [];

@@ -163,8 +163,6 @@
     if (!toggle) return;
     toggle.hidden = reduceMotion.matches;
     toggle.textContent = paused ? "Play" : "Pause";
-    toggle.setAttribute("aria-pressed", String(paused));
-    toggle.setAttribute("aria-label", paused ? "Play the neuron animation" : "Pause the neuron animation");
   }
   if (toggle) {
     toggle.addEventListener("click", function () {
