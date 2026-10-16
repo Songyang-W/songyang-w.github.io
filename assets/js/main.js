@@ -34,6 +34,7 @@
   };
   var list = document.getElementById("timeline");
   var entries = window.TIMELINE || [];
+  var groups = window.TIMELINE_GROUPS || {};
 
   function make(tag, className, text) {
     var node = document.createElement(tag);
@@ -42,17 +43,61 @@
     return node;
   }
 
-  function renderEntry(entry, index) {
-    var item = make("li", "tl-item");
-    item.dataset.cat = entry.category;
-    item.appendChild(make("div", "tl-when", entry.when));
-
+  function startItem(className, when, nodeClass) {
+    var item = make("li", className);
+    item.appendChild(make("div", "tl-when", when || ""));
     var rail = make("div", "tl-rail");
-    rail.appendChild(make("span", "tl-node"));
+    rail.appendChild(make("span", nodeClass));
     item.appendChild(rail);
+    return item;
+  }
+
+  /* A link, or a "coming soon" label for pages that do not exist yet. */
+  function renderLink(link) {
+    if (link.soon) {
+      var label = make("span", "tl-soon-link", link.label);
+      label.appendChild(make("span", "soon", "coming soon"));
+      return label;
+    }
+    var a = make("a", null, link.label);
+    a.href = link.href;
+    return a;
+  }
+
+  /* Header row for a project told in stages (consecutive entries sharing a group). */
+  function renderGroupHead(key) {
+    var group = groups[key] || { title: key };
+    var item = startItem("tl-item tl-group-head", group.when, "tl-node is-group");
+    item.dataset.group = key;
+    var body = make("div", "tl-body tl-group-body");
+    body.appendChild(make("span", "tl-cat", "Project in " + (group.stages || 2) + " stages"));
+    body.appendChild(make("h3", null, group.title));
+    if (group.blurb) body.appendChild(make("p", null, group.blurb));
+    if (group.link) body.appendChild(renderLink(group.link));
+    item.appendChild(body);
+    return item;
+  }
+
+  /* One-line milestone: a degree or honor that needs no card. */
+  function renderMilestone(entry) {
+    var item = startItem("tl-item tl-milestone", entry.when, "tl-node");
+    item.dataset.cat = entry.category;
+    var body = make("p", "tl-body tl-ms");
+    body.appendChild(make("strong", null, entry.title));
+    if (entry.note) body.appendChild(make("span", null, entry.note));
+    item.appendChild(body);
+    return item;
+  }
+
+  function renderEntry(entry, index) {
+    var item = startItem("tl-item", entry.when, "tl-node");
+    item.dataset.cat = entry.category;
 
     var card = make("article", "tl-card");
-    card.appendChild(make("span", "tl-cat", CATEGORY_LABELS[entry.category] || entry.category));
+    var top = make("div", "tl-top");
+    top.appendChild(make("span", "tl-cat", CATEGORY_LABELS[entry.category] || entry.category));
+    if (entry.stage) top.appendChild(make("span", "tl-stage", entry.stage));
+    card.appendChild(top);
     card.appendChild(make("h3", "tl-title", entry.title));
     if (entry.org) card.appendChild(make("p", "tl-org", entry.org));
     if (entry.summary) card.appendChild(make("p", "tl-sum", entry.summary));
@@ -83,11 +128,7 @@
       }
       if (links.length) {
         var row = make("div", "tl-links");
-        links.forEach(function (l) {
-          var a = make("a", null, l.label);
-          a.href = l.href;
-          row.appendChild(a);
-        });
+        links.forEach(function (l) { row.appendChild(renderLink(l)); });
         panel.appendChild(row);
       }
       btn.addEventListener("click", function () {
@@ -106,19 +147,35 @@
   }
 
   if (list) {
-    entries.forEach(function (entry, i) { list.appendChild(renderEntry(entry, i)); });
+    entries.forEach(function (entry, i) {
+      var prev = entries[i - 1], next = entries[i + 1];
+      if (entry.group && (!prev || prev.group !== entry.group)) list.appendChild(renderGroupHead(entry.group));
+      var item = entry.milestone ? renderMilestone(entry) : renderEntry(entry, i);
+      if (entry.group) {
+        item.classList.add("in-group");
+        item.dataset.group = entry.group;
+        if (!next || next.group !== entry.group) item.classList.add("group-last");
+      }
+      list.appendChild(item);
+    });
   }
 
-  /* Filter chips. */
+  /* Filter chips. A project header stays visible while any of its stages is visible. */
   var chips = document.querySelectorAll(".chip");
   var count = document.getElementById("tl-count");
   function applyFilter(filter) {
     if (!list) return;
-    var shown = 0;
-    Array.prototype.forEach.call(list.children, function (item) {
+    var shown = 0, liveGroups = {};
+    list.querySelectorAll(".tl-item:not(.tl-group-head)").forEach(function (item) {
       var match = filter === "all" || item.dataset.cat === filter;
       item.hidden = !match;
-      if (match) shown += 1;
+      if (match) {
+        shown += 1;
+        if (item.dataset.group) liveGroups[item.dataset.group] = true;
+      }
+    });
+    list.querySelectorAll(".tl-group-head").forEach(function (head) {
+      head.hidden = !liveGroups[head.dataset.group];
     });
     chips.forEach(function (c) { c.setAttribute("aria-pressed", String(c.dataset.filter === filter)); });
     if (count) count.textContent = "Showing " + shown + " of " + entries.length;

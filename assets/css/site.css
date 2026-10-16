@@ -188,14 +188,55 @@ section { scroll-margin-top: 72px; }
 .tl-details ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; max-width: 72ch; }
 .tl-links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 12px; font-size: 14.5px; font-weight: 600; }
 .tl-draft { font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
+.tl-node { z-index: 1; }
+.tl-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.tl-soon-link { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; color: var(--muted); font-weight: 500; font-size: 14.5px; }
+
+/* A project told in stages: header row, accent rail through its stages, tinted stage cards. */
+.tl-group-head .tl-when { color: var(--accent); }
+.tl-item .tl-node.is-group { width: 16px; height: 16px; margin-left: -8px; top: 20px; background: var(--bg); border: 3px solid var(--accent); }
+.tl-group-head .tl-rail::before,
+.tl-item.in-group .tl-rail::before {
+  content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 3px; margin-left: -1.5px; background: var(--accent);
+}
+.tl-group-head .tl-rail::before { top: 28px; }
+.tl-item.group-last .tl-rail::before { bottom: calc(100% - 28px); }
+.tl-group-body { display: flex; flex-direction: column; gap: 6px; padding-block: 14px 18px; min-width: 0; }
+.tl-group-body .tl-cat { color: var(--accent); }
+.tl-group-body h3 { font-size: 23px; font-weight: 780; line-height: 1.2; }
+.tl-group-body p { color: var(--muted); max-width: 64ch; }
+.tl-item.in-group .tl-card {
+  border-color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 38%, var(--line));
+  background: color-mix(in srgb, var(--accent) 3%, var(--surface));
+}
+.tl-stage {
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--accent); background: var(--accent-soft); padding: 1px 8px; border-radius: 4px;
+}
+
+/* One-line milestones: a diamond on the rail and a single line of text, no card. */
+.tl-item.tl-milestone .tl-node {
+  width: 10px; height: 10px; margin-left: -5px; top: 24px; border: 0; border-radius: 1px;
+  background: var(--ink); transform: rotate(45deg);
+}
+.tl-ms { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; padding-top: 17px; margin-bottom: 18px; }
+.tl-ms strong { font-family: var(--f-display); font-stretch: 105%; font-weight: 700; font-size: 16.5px; }
+.tl-ms span { color: var(--muted); font-size: 14.5px; }
+
 @media (max-width: 640px) {
   .tl::before { left: 10px; }
   .tl-item { grid-template-columns: 20px minmax(0, 1fr); column-gap: 12px; }
   .tl-when { grid-column: 2; grid-row: 1; text-align: left; padding-top: 0; }
   .tl-rail { grid-column: 1; grid-row: 1 / span 2; }
-  .tl-card { grid-column: 2; grid-row: 2; margin-top: 6px; }
+  .tl-card, .tl-body { grid-column: 2; grid-row: 2; margin-top: 6px; }
   .tl-node { top: 5px; }
   .tl-item[data-cat="teaching"] .tl-node { top: 7px; }
+  .tl-item .tl-node.is-group { top: 3px; }
+  .tl-group-head .tl-rail::before { top: 11px; }
+  .tl-item.group-last .tl-rail::before { bottom: calc(100% - 11px); }
+  .tl-group-body, .tl-ms { padding-top: 0; }
+  .tl-item.tl-milestone .tl-node { top: 6px; }
 }
 
 /* featured dissertation */
