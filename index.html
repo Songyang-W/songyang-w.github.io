@@ -1,122 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Songyang W - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>William (Songyang) Wang</title>
+  <meta name="description" content="Machine learning engineer with a Ph.D. in Biomedical Engineering. Training pipelines and data infrastructure for large biological data, from petabyte-scale brain imaging to real-time clinical computer vision.">
+  <link rel="canonical" href="https://songyang-w.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="William (Songyang) Wang, Machine Learning Engineer">
+  <meta property="og:description" content="Training pipelines and data infrastructure for large biological data, from petabyte-scale brain imaging to real-time clinical computer vision.">
+  <meta property="og:url" content="https://songyang-w.github.io/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script>try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}</script>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
 
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo">Songyang W</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="#">Work ▾</a>
-                    <div class="dropdown-content">
-                        <a href="#">Connectomics</a>
-                        <a href="#">Homecage</a>
-                        <a href="#">Hemodynamic Monitoring</a>
-                        <a href="#">Waveform</a>
-                        <a href="#">Heart-Brain Association</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Personal ▾</a>
-                    <div class="dropdown-content">
-                        <a href="#">Workout</a>
-                        <a href="#">Cycling</a>
-                        <a href="#">Fencing</a>
-                        <a href="#">Kendo</a>
-                        <a href="#">CSCS Study</a>
-                    </div>
-                </li>
-                <li><a href="#">Resume</a></li>
-                <li class="dropdown">
-                    <a href="#">Memo Writing ▾</a>
-                    <div class="dropdown-content">
-                        <a href="#">120224 Lab Memo</a>
-                        <a href="#">052724 Lab Memo</a>
-                    </div>
-                </li>
-            </ul>
+  <header class="site-head">
+    <div class="inner">
+      <a class="logo" href="#top">William <span class="alt">(Songyang)</span> Wang</a>
+      <nav class="nav" aria-label="Main">
+        <a href="#timeline-section">Timeline</a>
+        <a href="#featured" class="optional">Connectomics</a>
+        <a href="#skills" class="optional">Skills</a>
+        <a href="#contact">Contact</a>
+        <button type="button" class="theme-btn" id="theme-toggle">Dark</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero inner" id="top" aria-labelledby="hero-name">
+      <div class="hero-text">
+        <p class="eyebrow">Machine learning engineer · Ph.D., Biomedical Engineering</p>
+        <h1 id="hero-name">William <span class="paren">(Songyang)</span> Wang</h1>
+        <p class="pitch">I build training pipelines and data infrastructure for large, messy biological data, from petabyte-scale brain imaging to real-time clinical computer vision.</p>
+        <div class="actions">
+          <a class="btn primary" href="resume.pdf">Resume</a>
+          <a class="btn" href="https://github.com/Songyang-W" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="#contact">LinkedIn</a>
+          <a class="btn" href="#contact">Email</a>
         </div>
-    </nav>
-
-    <header class="hero">
-        <div class="hero-content">
-            <img src="https://lh3.googleusercontent.com/profile/picture/0" alt="Songyang W" class="profile-pic">
-            <h1>Hi, I'm Songyang</h1>
-            <p>BioMedical Engineering Ph.D. candidate from Boston University.</p>
+        <div class="proof">
+          <div><span class="value">657 TB</span><span class="label">EM volume run end to end</span></div>
+          <div><span class="value">11×</span><span class="label">faster training after fixing GPU starvation</span></div>
+          <div><span class="value">7×</span><span class="label">faster stitching on a Slurm cluster</span></div>
+          <div><span class="value">415</span><span class="label">neurons reconstructed by a team I led</span></div>
         </div>
-    </header>
-
-    <section class="container">
-        <h2>About Me</h2>
-        <p>
-            Ph.D. candidate in Biomedical Engineering and AI/ML Data Scientist specializing in neural and sensor data analysis. 
-            Experienced in developing end-to-end ML pipelines—from neural signal acquisition and preprocessing to model training, 
-            evaluation, and deployment on Docker/cloud platforms. 
-        </p>
-        <p>
-            Proficient in PyTorch, deep learning/machine learning, biomedical/neural signal processing, ephys data 
-            (EEG, ECG, EMG, ECoG), behavioral data, and large-scale datasets (500 TB+). 
-            Passionate about translating neuroscience and machine learning into next-generation brain-computer interfaces.
-        </p>
+      </div>
+      <figure class="hero-visual">
+        <canvas id="neuron" tabindex="0" role="img" aria-label="Illustration of a neuron with synapses marked in red. Drag or use the arrow keys to rotate."></canvas>
+        <figcaption>Drag to rotate · illustration, my reconstructed neurons coming soon</figcaption>
+      </figure>
     </section>
 
-    <section class="container">
-        <h2>Selected Work And Life</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Connectomics</h3>
-                <p>Exploring Neuronal Circuitry Architecture in the Somatosensory Cortex: Unraveling Mechanisms of Working Memory and Decision Making</p>
-            </div>
-            <div class="card">
-                <h3>HomeCage</h3>
-                <p>Magnetic-based Automatic Head-Fixed Home Cage Design</p>
-            </div>
-            <div class="card">
-                <h3>Senior Design Project</h3>
-                <p>Non-invasive real-time portable blood pressure measurement device</p>
-            </div>
-            <div class="card">
-                <h3>Brain Heart Connectivity</h3>
-                <p>Heart-Brain Association Studies</p>
-            </div>
-            <div class="card">
-                <h3>Waveform Project</h3>
-                <p>Signal analysis and processing</p>
-            </div>
-        </div>
+    <section class="band inner" id="timeline-section" aria-labelledby="timeline-title">
+      <div class="section-head">
+        <p class="eyebrow">2016 → 2026</p>
+        <h2 id="timeline-title">Timeline</h2>
+        <p>Ten years from biomedical engineering to machine learning. Open any entry for the details.</p>
+      </div>
+      <div class="chips" role="group" aria-label="Filter the timeline">
+        <button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="chip" data-filter="industry" aria-pressed="false">Industry</button>
+        <button type="button" class="chip" data-filter="research" aria-pressed="false">Research</button>
+        <button type="button" class="chip" data-filter="project" aria-pressed="false">Projects</button>
+        <button type="button" class="chip" data-filter="education" aria-pressed="false">Education</button>
+        <button type="button" class="chip" data-filter="teaching" aria-pressed="false">Teaching</button>
+      </div>
+      <p class="count" id="tl-count" aria-live="polite"></p>
+      <ol class="tl" id="timeline"></ol>
+      <noscript><p>The timeline needs JavaScript. My <a href="resume.pdf">resume</a> has the same information.</p></noscript>
     </section>
 
-    <section class="container">
-        <h2>Hobbies</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="https://lh3.googleusercontent.com/profile/picture/3" alt="Fencing"> 
-                <h3>Fencing</h3>
-            </div>
-            <div class="card">
-                <h3>Kendo</h3>
-            </div>
-            <div class="card">
-                <img src="https://lh3.googleusercontent.com/sitesv/AAzXCkdHrCxc_WyNFOF-ElVvDyemwIY5XooYDU1Mn07OYtC91GVakKf2jNQjeLj1F2lDGjHwSV7LYA0sqR4esDL9HKKLz4An5bIR20M4EaR7JdHotOmMgEh9ixItkQ8qb77MSuZ6Pfa5oQappbtVG4DKdczuXVWAEPII-64WM9vq7zRI_g0mnoRWlnoarVOI_JQFDP7vtNb9-glHrftFnlQZesUAuC_GI8VOpL-91NQ=w1280" alt="Cycling">
-                <h3>Cycling</h3>
-            </div>
-            <div class="card">
-                <h3>Photography</h3>
-            </div>
+    <section class="band inner" id="featured" aria-labelledby="featured-title">
+      <div class="feature">
+        <div class="feature-text">
+          <p class="eyebrow">Featured · Dissertation</p>
+          <h2 id="featured-title">Mapping a memory circuit, synapse by synapse</h2>
+          <p>A mouse learned to compare two touches separated by a delay. I recorded its neurons while it worked, then mapped the wiring between those same neurons from thousands of slices of brain tissue, each a few thousand times thinner than a hair.</p>
+          <div class="actions">
+            <a class="btn primary" href="connectomics/">Read the story</a>
+            <span class="soon">Coming next</span>
+          </div>
         </div>
+        <div class="feature-stats">
+          <p><b>2,323</b>slices of 50 nm</p>
+          <p><b>657 TB</b>of raw images</p>
+          <p><b>415</b>neurons reconstructed</p>
+        </div>
+      </div>
     </section>
 
-    <footer>
-        <p>Get in touch at <a href="mailto:songyw@bu.edu">songyw@bu.edu</a></p>
-        <p><a href="https://sites.google.com/bu.edu/songyangs-diary/home">Songyang's Diary</a></p>
-    </footer>
+    <section class="band inner" id="skills" aria-labelledby="skills-title">
+      <div class="section-head">
+        <p class="eyebrow">Toolbox</p>
+        <h2 id="skills-title">Skills</h2>
+      </div>
+      <div class="skills">
+        <div>
+          <h3>Model training</h3>
+          <ul>
+            <li>PyTorch</li><li>TensorFlow</li><li>Distributed training (DDP)</li><li>GPU throughput optimization</li>
+            <li>Out-of-core data loading</li><li>Self-supervised and contrastive learning</li><li>Transfer learning</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Architectures</h3>
+          <ul>
+            <li>CNNs (ResNet, DenseNet, ConvNeXt)</li><li>U-Net</li><li>3D CNN</li><li>RNN and GRU</li><li>Attention modules (CBAM)</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Infrastructure</h3>
+          <ul>
+            <li>Docker</li><li>FastAPI and REST</li><li>AWS EC2</li><li>GCP</li><li>Slurm and HPC</li><li>Git</li><li>Linux and Bash</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Data and classical ML</h3>
+          <ul>
+            <li>NumPy</li><li>Pandas</li><li>scikit-learn</li><li>XGBoost</li><li>LightGBM</li><li>SHAP</li><li>GLMs</li>
+            <li>Experimental design</li><li>Hypothesis testing</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <footer class="site-foot" id="contact">
+    <div class="inner">
+      <div class="contact">
+        <p class="eyebrow">Contact</p>
+        <h2>Let's talk</h2>
+        <div class="email-row">
+          <span class="email" id="email-address">will.songyang.wang@gmail.com</span>
+          <button type="button" class="copy-btn" data-copy="email-address">Copy</button>
+        </div>
+      </div>
+      <div class="foot-links">
+        <a href="mailto:will.songyang.wang@gmail.com">Email</a>
+        <a href="https://github.com/Songyang-W" target="_blank" rel="noopener">GitHub</a>
+        <a href="#contact">LinkedIn</a>
+      </div>
+      <p class="fine">© 2026 William (Songyang) Wang</p>
+    </div>
+  </footer>
+
+  <script src="data/timeline.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/neuron.js"></script>
 </body>
 </html>
