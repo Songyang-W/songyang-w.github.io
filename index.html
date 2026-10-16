@@ -3,13 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>William (Songyang) Wang</title>
-  <meta name="description" content="Machine learning engineer with a Ph.D. in Biomedical Engineering. Training pipelines and data infrastructure for large biological data, from petabyte-scale brain imaging to real-time clinical computer vision.">
+  <title>William (Songyang) Wang | Machine Learning Engineer</title>
+  <meta name="description" content="Machine learning engineer with a Ph.D. in Biomedical Engineering. I build training pipelines and data infrastructure for large biological data.">
   <link rel="canonical" href="https://songyang-w.github.io/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0f14" media="(prefers-color-scheme: dark)">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="William (Songyang) Wang">
   <meta property="og:title" content="William (Songyang) Wang, Machine Learning Engineer">
-  <meta property="og:description" content="Training pipelines and data infrastructure for large biological data, from petabyte-scale brain imaging to real-time clinical computer vision.">
+  <meta property="og:description" content="Training pipelines and data infrastructure for large biological data, from petabyte-scale brain imaging to clinical computer vision.">
   <meta property="og:url" content="https://songyang-w.github.io/">
+  <meta name="twitter:card" content="summary">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -37,7 +42,7 @@
       <div class="hero-text">
         <p class="eyebrow">Machine learning engineer · Ph.D., Biomedical Engineering</p>
         <h1 id="hero-name">William <span class="paren">(Songyang)</span> Wang</h1>
-        <p class="pitch">I build training pipelines and data infrastructure for large, messy biological data, from petabyte-scale brain imaging to real-time clinical computer vision.</p>
+        <p class="pitch">I build training pipelines and data infrastructure for large, messy biological data, from petabyte-scale brain imaging to clinical computer vision and real-time neural decoding.</p>
         <div class="actions">
           <a class="btn primary" href="assets/William-Songyang-Wang-Resume.pdf" target="_blank" rel="noopener">Resume</a>
           <a class="btn" href="https://github.com/Songyang-W" target="_blank" rel="noopener">GitHub</a>
@@ -45,14 +50,15 @@
           <a class="btn" href="#contact">Email</a>
         </div>
         <div class="proof">
-          <div><span class="value">657 TB</span><span class="label">EM volume run end to end</span></div>
+          <div><span class="value">657 TB</span><span class="label">EM volume taken through its full data lifecycle</span></div>
           <div><span class="value">11×</span><span class="label">faster training after fixing GPU starvation</span></div>
           <div><span class="value">7×</span><span class="label">faster stitching on a Slurm cluster</span></div>
           <div><span class="value">415</span><span class="label">neurons reconstructed by a team I led</span></div>
         </div>
       </div>
       <figure class="hero-visual">
-        <canvas id="neuron" tabindex="0" role="img" aria-label="Illustration of a neuron with synapses marked in red. Drag or use the arrow keys to rotate."></canvas>
+        <canvas id="neuron" role="img" aria-label="Illustration of a neuron with synapses marked in red"></canvas>
+        <button type="button" class="motion-btn" id="neuron-toggle" aria-pressed="false">Pause</button>
         <figcaption>Drag to rotate · illustration, my reconstructed neurons coming soon</figcaption>
       </figure>
     </section>
@@ -81,13 +87,13 @@
         <div class="feature-text">
           <p class="eyebrow">Featured · Dissertation</p>
           <h2 id="featured-title">Mapping a memory circuit, synapse by synapse</h2>
-          <p>A mouse learned to compare two touches separated by a delay. I recorded its neurons while it worked, then mapped the wiring between those same neurons from thousands of slices of brain tissue, each a few thousand times thinner than a hair.</p>
+          <p>A mouse learned to compare two touches separated by a delay. I recorded its neurons while it worked, then mapped the wiring between those same neurons from thousands of ultrathin slices of brain tissue, each more than a thousand times thinner than a hair.</p>
           <div class="actions">
             <span class="soon">Full story coming soon</span>
           </div>
         </div>
         <div class="feature-stats">
-          <p><b>2,323</b>slices of 50 nm</p>
+          <p><b>2,323</b>ultrathin slices, 50 nm each</p>
           <p><b>657 TB</b>of raw images</p>
           <p><b>415</b>neurons reconstructed</p>
         </div>
@@ -103,7 +109,7 @@
         <div>
           <h3>Model training</h3>
           <ul>
-            <li>PyTorch</li><li>TensorFlow</li><li>Distributed training (DDP)</li><li>GPU throughput optimization</li>
+            <li>Python</li><li>PyTorch</li><li>TensorFlow</li><li>Distributed training (DDP)</li><li>GPU throughput optimization</li>
             <li>Out-of-core data loading</li><li>Self-supervised and contrastive learning</li><li>Transfer learning</li>
           </ul>
         </div>
@@ -138,6 +144,7 @@
         <div class="email-row">
           <span class="email" id="email-address">will.songyang.wang@gmail.com</span>
           <button type="button" class="copy-btn" data-copy="email-address">Copy</button>
+          <span class="sr-only" role="status" id="copy-status"></span>
         </div>
       </div>
       <div class="foot-links">

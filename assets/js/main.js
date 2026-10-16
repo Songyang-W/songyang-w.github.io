@@ -5,6 +5,11 @@
   var root = document.documentElement;
   var darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
+  function onMediaChange(query, fn) {
+    if (query.addEventListener) query.addEventListener("change", fn);
+    else if (query.addListener) query.addListener(fn);
+  }
+
   /* Theme toggle. The saved choice is applied before paint by a small script in <head>. */
   function activeTheme() {
     return root.getAttribute("data-theme") || (darkQuery.matches ? "dark" : "light");
@@ -24,7 +29,7 @@
       syncThemeButton();
     });
   }
-  darkQuery.addEventListener("change", syncThemeButton);
+  onMediaChange(darkQuery, syncThemeButton);
   syncThemeButton();
 
   /* Timeline, rendered from window.TIMELINE (data/timeline.js). */
@@ -43,9 +48,24 @@
     return node;
   }
 
+  /* Year column. The arrow is hidden from screen readers, which hear "to" instead. */
+  function renderWhen(when) {
+    var cell = make("div", "tl-when");
+    String(when || "").split("→").forEach(function (part, i) {
+      if (i > 0) {
+        var arrow = make("span", null, "→");
+        arrow.setAttribute("aria-hidden", "true");
+        cell.appendChild(arrow);
+        cell.appendChild(make("span", "sr-only", " to "));
+      }
+      cell.appendChild(document.createTextNode(part));
+    });
+    return cell;
+  }
+
   function startItem(className, when, nodeClass) {
     var item = make("li", className);
-    item.appendChild(make("div", "tl-when", when || ""));
+    item.appendChild(renderWhen(when));
     var rail = make("div", "tl-rail");
     rail.appendChild(make("span", nodeClass));
     item.appendChild(rail);
@@ -98,7 +118,8 @@
     top.appendChild(make("span", "tl-cat", CATEGORY_LABELS[entry.category] || entry.category));
     if (entry.stage) top.appendChild(make("span", "tl-stage", entry.stage));
     card.appendChild(top);
-    card.appendChild(make("h3", "tl-title", entry.title));
+    /* Stages sit under their project heading, so they take the next heading level. */
+    card.appendChild(make(entry.group ? "h4" : "h3", "tl-title", entry.title));
     if (entry.org) card.appendChild(make("p", "tl-org", entry.org));
     if (entry.summary) card.appendChild(make("p", "tl-sum", entry.summary));
 
@@ -117,6 +138,7 @@
       btn.type = "button";
       btn.setAttribute("aria-expanded", "false");
       btn.setAttribute("aria-controls", panelId);
+      btn.setAttribute("aria-label", "Details: " + entry.title);
 
       var panel = make("div", "tl-details");
       panel.id = panelId;
@@ -198,9 +220,14 @@
     btn.addEventListener("click", function () {
       var target = document.getElementById(btn.getAttribute("data-copy"));
       if (!target) return;
+      var status = document.getElementById("copy-status");
       var confirm = function () {
         btn.textContent = "Copied";
-        setTimeout(function () { btn.textContent = label; }, 1600);
+        if (status) status.textContent = "Email address copied";
+        setTimeout(function () {
+          btn.textContent = label;
+          if (status) status.textContent = "";
+        }, 1600);
       };
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(target.textContent.trim()).then(confirm, function () { selectText(target); });

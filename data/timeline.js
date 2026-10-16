@@ -16,7 +16,7 @@ window.TIMELINE_GROUPS = {
     title: "Petascale EM connectomics",
     when: "2021 → 2026",
     stages: 2,
-    blurb: "One 657 TB electron microscopy volume of mouse cortex, in two stages: first build the dataset, then train self-supervised models on it.",
+    blurb: "One 657 TB electron microscopy volume of mouse cortex, in two stages: first build the dataset, then adapt self-supervised models to it.",
     link: { label: "Read the story", soon: true }
   }
 };
@@ -61,7 +61,7 @@ window.TIMELINE = [
       "Built the real-time backend for a full-stack web app that guides surgical placement of the array.",
       "Trained a lightweight U-Net denoiser (about 274 KB, under 5 ms on CPU) and a 3D CNN that decodes 2D movement-direction vectors.",
       "Added motion-aware cluster tracking to stay stable under array drift.",
-      "Served inference in under 100 ms end to end for a hands-free operating-room UI at 30 to 60 FPS."
+      "Served inference in under 50 ms end to end for a hands-free operating-room UI at 30 to 60 FPS."
     ],
     tags: ["U-Net", "3D CNN", "Real-time inference"]
   },
@@ -76,7 +76,7 @@ window.TIMELINE = [
     bullets: [
       "Ran data operations across acquisition, preprocessing, GCP migration and segmentation handoff to an external vendor, then built the downstream ML analysis on the returned data.",
       "Extended 2D stitching and 3D reconstruction on a Slurm HPC cluster for a 7× speedup and 85% lower memory.",
-      "Led a team of about 15 (undergraduates and a postdoc) with no formal authority to 415 proofread neuron reconstructions in about 1.5 years, one of the largest proofread sets in a single volume.",
+      "Led a team of about 15 (undergraduates and a postdoc) with no formal authority to deliver 415 proofread neuron reconstructions in about 1.5 years, one of the largest proofread sets in a single volume.",
       "This work supports a manuscript in submission."
     ],
     tags: ["GCP", "Slurm HPC", "Data pipelines", "Team lead"],
@@ -87,9 +87,9 @@ window.TIMELINE = [
     category: "research",
     group: "connectomics",
     stage: "Stage 2 · Learn from it",
-    title: "Self-supervised contrastive learning on the connectome",
+    title: "Self-supervised contrastive learning for connectomics",
     org: "Boston University, Graduate Research Assistant",
-    summary: "Rebuilt SegCLR and SynapseCLR in PyTorch and trained them on the same EM volume, so cell-type labels can reach beyond the hand-annotated neurons.",
+    summary: "Rebuilt SegCLR and SynapseCLR in PyTorch and adapted them to this EM data, so cell-type labels can reach beyond the hand-annotated neurons.",
     bullets: [
       "Reimplemented SegCLR and SynapseCLR from TensorFlow in PyTorch, with a custom normalization method to bridge data domains.",
       "Scaled contrastive pretraining across 2 V100 GPUs with PyTorch DistributedDataParallel, learning view-invariant embeddings of neurons.",

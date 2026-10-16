@@ -1,5 +1,5 @@
-/* Hero illustration: a procedurally grown pyramidal-style neuron that slowly rotates. Drag or use the
-   arrow keys to turn it. Accent dots stand for synapses. This is a placeholder until a neuron mesh
+/* Hero illustration: a procedurally grown pyramidal-style neuron that slowly rotates. Drag to turn it,
+   or pause it with the button. Accent dots stand for synapses. This is a placeholder until a neuron mesh
    reconstructed from the dissertation dataset replaces it. */
 (function () {
   "use strict";
@@ -129,21 +129,50 @@
     ctx.fill();
   }
 
-  /* Animation runs only while the canvas is on screen, the tab is visible and motion is allowed. */
+  function onMediaChange(query, fn) {
+    if (query.addEventListener) query.addEventListener("change", fn);
+    else if (query.addListener) query.addListener(fn);
+  }
+
+  /* Animation runs only while the canvas is on screen, the tab is visible, motion is allowed
+     and the visitor has not paused it. One frame request at a time, rotation speed in radians per second. */
+  var SPIN = 0.24;
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  var running = false, onScreen = true, dragging = false, lastX = 0, lastY = 0;
-  function loop() {
-    if (!running) return;
-    if (!dragging) angle += 0.004;
+  var rafId = 0, lastTime = 0, onScreen = true, paused = false;
+  var dragging = false, dragId = null, lastX = 0, lastY = 0;
+  function loop(now) {
+    var dt = lastTime ? Math.min(now - lastTime, 100) / 1000 : 0;
+    lastTime = now;
+    if (!dragging) angle += SPIN * dt;
     draw();
-    requestAnimationFrame(loop);
+    rafId = requestAnimationFrame(loop);
   }
   function start() {
-    if (running || reduceMotion.matches || !onScreen || document.hidden) return;
-    running = true;
-    requestAnimationFrame(loop);
+    if (rafId || paused || reduceMotion.matches || !onScreen || document.hidden) return;
+    lastTime = 0;
+    rafId = requestAnimationFrame(loop);
   }
-  function stop() { running = false; }
+  function stop() {
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = 0;
+  }
+
+  /* Pause and play control (motion that runs longer than five seconds needs one). */
+  var toggle = document.getElementById("neuron-toggle");
+  function syncToggle() {
+    if (!toggle) return;
+    toggle.hidden = reduceMotion.matches;
+    toggle.textContent = paused ? "Play" : "Pause";
+    toggle.setAttribute("aria-pressed", String(paused));
+    toggle.setAttribute("aria-label", paused ? "Play the neuron animation" : "Pause the neuron animation");
+  }
+  if (toggle) {
+    toggle.addEventListener("click", function () {
+      paused = !paused;
+      if (paused) stop(); else start();
+      syncToggle();
+    });
+  }
 
   if ("IntersectionObserver" in window) {
     new IntersectionObserver(function (es) {
@@ -152,35 +181,37 @@
     }).observe(canvas);
   }
   document.addEventListener("visibilitychange", function () { if (document.hidden) stop(); else start(); });
-  reduceMotion.addEventListener("change", function () { if (reduceMotion.matches) stop(); else start(); draw(); });
+  onMediaChange(reduceMotion, function () {
+    if (reduceMotion.matches) stop(); else start();
+    syncToggle();
+    draw();
+  });
 
   canvas.addEventListener("pointerdown", function (e) {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
     dragging = true;
+    dragId = e.pointerId;
     lastX = e.clientX;
     lastY = e.clientY;
     canvas.setPointerCapture(e.pointerId);
   });
   canvas.addEventListener("pointermove", function (e) {
-    if (!dragging) return;
+    if (!dragging || e.pointerId !== dragId) return;
     angle += (e.clientX - lastX) * 0.01;
     tilt = Math.max(-0.7, Math.min(0.7, tilt + (e.clientY - lastY) * 0.006));
     lastX = e.clientX;
     lastY = e.clientY;
-    if (!running) draw();
+    if (!rafId) draw();
   });
-  function endDrag() { dragging = false; }
+  function endDrag(e) {
+    if (e.pointerId === dragId) { dragging = false; dragId = null; }
+  }
   canvas.addEventListener("pointerup", endDrag);
   canvas.addEventListener("pointercancel", endDrag);
-  canvas.addEventListener("keydown", function (e) {
-    if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
-    angle += e.key === "ArrowLeft" ? -0.2 : 0.2;
-    if (!running) draw();
-    e.preventDefault();
-  });
 
   function refreshColors() { readColors(); draw(); }
   new MutationObserver(refreshColors).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", refreshColors);
+  onMediaChange(window.matchMedia("(prefers-color-scheme: dark)"), refreshColors);
   if ("ResizeObserver" in window) {
     new ResizeObserver(function () { resize(); draw(); }).observe(canvas);
   } else {
@@ -190,5 +221,6 @@
   readColors();
   resize();
   draw();
+  syncToggle();
   start();
 })();
