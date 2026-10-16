@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CWNQJVRGQM"></script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag("js", new Date()); gtag("config", "G-CWNQJVRGQM");</script>
   <title>My PhD Dissertation | William (Songyang) Wang</title>
   <meta name="description" content="Mapping a memory circuit, synapse by synapse: two-photon imaging and electron microscopy connectomics of the mouse somatosensory cortex. Ph.D. dissertation, Boston University, 2026.">
   <link rel="canonical" href="https://songyang-w.github.io/dissertation/">
@@ -28,7 +30,7 @@
     <div class="inner">
       <a class="logo" href="../">William <span class="alt">(Songyang)</span> Wang</a>
       <nav class="nav" aria-label="Main">
-        <a href="../#timeline-section" class="optional">Timeline</a>
+        <a href="../#timeline-section" class="optional">Projects</a>
         <a href="./" aria-current="page"><span class="long">PhD </span>Dissertation</a>
         <a href="../#skills" class="optional">Skills</a>
         <a href="#contact" class="optional-xs">Contact</a>
@@ -101,6 +103,37 @@
       </div>
     </section>
 
+    <section class="band inner" id="engineering" aria-labelledby="engineering-title">
+      <div class="section-head">
+        <p class="eyebrow">The engineering</p>
+        <h2 id="engineering-title">Building the map, then learning from it</h2>
+        <p>The connectomics side of the project ran in two stages on the same electron microscopy volume.</p>
+      </div>
+      <div class="stage-cards">
+        <article id="stage-1">
+          <span class="tl-stage">Stage 1 · Build the dataset</span>
+          <h3>Data operations for a 657 TB EM volume</h3>
+          <p class="tl-org">Harvard Medical School, Visiting PhD Student · 2021 to 2025</p>
+          <ul>
+            <li>Ran data operations across acquisition, preprocessing, GCP migration and segmentation handoff to an external vendor, then built the downstream ML analysis on the returned data.</li>
+            <li>Extended 2D stitching and 3D reconstruction on a Slurm HPC cluster for a 7× speedup and 85% lower memory.</li>
+            <li>Led a team of about 15 (undergraduates and a postdoc) with no formal authority to deliver 415 proofread neuron reconstructions in about 1.5 years.</li>
+          </ul>
+        </article>
+        <article id="stage-2">
+          <span class="tl-stage">Stage 2 · Learn from it</span>
+          <h3>Self-supervised contrastive learning for connectomics</h3>
+          <p class="tl-org">Boston University, Graduate Research Assistant · 2024 to 2026</p>
+          <ul>
+            <li>Reimplemented SegCLR and SynapseCLR from TensorFlow in PyTorch and adapted them to this EM data, with a custom normalization method to bridge data domains.</li>
+            <li>Scaled contrastive pretraining across 2 V100 GPUs with PyTorch DistributedDataParallel, learning view-invariant embeddings of neurons.</li>
+            <li>Trained on about 1 TB of 3D EM with out-of-core loading of pre-extracted 256 × 256 × 256 cutouts.</li>
+            <li>Shipped a reproducible package for downstream classifiers (best model 0.86 accuracy), so cell-type labels can reach beyond the hand-annotated neurons.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
     <section class="band inner" id="parts" aria-labelledby="parts-title">
       <div class="section-head">
         <p class="eyebrow">The story</p>
@@ -137,6 +170,17 @@
         <p>This work depended on many people: the Chen Lab at Boston University, the Lee Lab at Harvard Medical School, Zetta AI for automated segmentation, the Max Planck Florida Institute for Neuroscience and the Seung Lab at Princeton for electron microscopy support, and the undergraduate team who traced and proofread the neurons.</p>
         <p class="cite">Wang, S. (2026). Structural and Functional Organization of Somatosensory Cortex Microcircuits in Working-Memory-Related Processing [Doctoral dissertation, Boston University].</p>
       </div>
+    </section>
+    <section class="band inner" aria-labelledby="more-title">
+      <div class="section-head">
+        <p class="eyebrow">Keep exploring</p>
+        <h2 id="more-title">More of my work</h2>
+      </div>
+      <ul class="more-work">
+          <li><a href="../projects/tremor/"><span class="an-line">I analyze <em>tremor patient data</em>.</span><span class="an-where">Encora Therapeutics</span></a></li>
+          <li><a href="../projects/brain-heart/"><span class="an-line">I analyze <em>brain-heart connectivity</em>.</span><span class="an-where">Undergraduate research</span></a></li>
+          <li><a href="../projects/bci-compass/"><span class="an-line">I analyze <em>synthetic human brain data</em>.</span><span class="an-where">BCI hackathon, 2nd place</span></a></li>
+      </ul>
     </section>
   </main>
 

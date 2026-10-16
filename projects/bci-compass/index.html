@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CWNQJVRGQM"></script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag("js", new Date()); gtag("config", "G-CWNQJVRGQM");</script>
+  <title>Compass: real-time guidance for a 1,024-channel brain array | William (Songyang) Wang</title>
+  <meta name="description" content="A real-time cortical guidance tool for placing a 1,024-channel micro-ECoG array, built on synthetic human brain data. 2nd place, Brain Storm BCI Hackathon, January 2026.">
+  <link rel="canonical" href="https://songyang-w.github.io/projects/bci-compass/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0f14" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="William (Songyang) Wang">
+  <meta property="og:title" content="Compass: real-time guidance for a 1,024-channel brain array">
+  <meta property="og:description" content="A real-time cortical guidance tool for placing a 1,024-channel micro-ECoG array, built on synthetic human brain data. 2nd place, Brain Storm BCI Hackathon, January 2026.">
+  <meta property="og:url" content="https://songyang-w.github.io/projects/bci-compass/">
+  <meta property="og:image" content="https://songyang-w.github.io/assets/img/headshot-640.jpg">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../../assets/css/site.css">
+  <script>try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-head">
+    <div class="inner">
+      <a class="logo" href="../../">William <span class="alt">(Songyang)</span> Wang</a>
+      <nav class="nav" aria-label="Main">
+        <a href="../../#timeline-section" class="optional">Projects</a>
+        <a href="../../dissertation/"><span class="long">PhD </span>Dissertation</a>
+        <a href="../../#skills" class="optional">Skills</a>
+        <a href="#contact" class="optional-xs">Contact</a>
+        <button type="button" class="theme-btn" id="theme-toggle">Dark</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="project-hero inner" aria-labelledby="page-title">
+      <p class="crumbs"><a href="../../#timeline-section">Projects</a> / Compass</p>
+      <p class="eyebrow">Brain Storm BCI Hackathon · January 2026 · 2nd place</p>
+      <h1 id="page-title">Compass: real-time guidance for a 1,024-channel brain array</h1>
+      <p class="pitch">During neurosurgery, a thin micro-ECoG array with 1,024 channels can be placed on the surface of the brain. Compass reads the array's signals live and turns them into guidance for the surgical team. Working with synthetic human brain data, I built the real-time backend and the models behind it.</p>
+      <ul class="tags" aria-label="Skills used"><li>U-Net</li><li>3D CNN</li><li>Real-time inference</li><li>Signal denoising</li><li>Tracking</li></ul>
+      <dl class="facts">
+          <div><dt>Result</dt><dd>2nd place</dd></div>
+          <div><dt>When</dt><dd>January 2026</dd></div>
+          <div><dt>My part</dt><dd>Real-time backend and models</dd></div>
+          <div><dt>Data</dt><dd>Synthetic human brain recordings</dd></div>
+      </dl>
+    </section>
+
+    <section class="band inner" aria-labelledby="challenge-title">
+      <div class="section-head">
+        <p class="eyebrow">The problem</p>
+        <h2 id="challenge-title">What made it hard</h2>
+      </div>
+      <div class="prose">
+        <p>Guidance in an operating room has to be fast, stable and hands-free.</p>
+        <p>The signals are noisy and the array can drift as it moves, so the system has to denoise, decode and track in real time.</p>
+      </div>
+    </section>
+
+    <section class="band inner" aria-labelledby="built-title">
+      <div class="section-head">
+        <p class="eyebrow">My work</p>
+        <h2 id="built-title">What I built</h2>
+      </div>
+      <ul class="built">
+        <li><h3>Real-time backend</h3><p>The backend of a full-stack web app that guides placement of the array.</p></li>
+        <li><h3>Tiny denoiser</h3><p>A lightweight U-Net, about 274 KB, that cleans the signals in under 5 ms on a CPU.</p></li>
+        <li><h3>Decoder</h3><p>A 3D CNN that decodes 2D movement-direction vectors from the array's signals.</p></li>
+        <li><h3>Stable tracking</h3><p>Motion-aware cluster tracking that stays stable as the array drifts.</p></li>
+        <li><h3>Speed</h3><p>Under 50 ms end to end, feeding a hands-free operating-room interface at 30 to 60 FPS.</p></li>
+      </ul>
+    </section>
+
+    <section class="band inner" aria-labelledby="more-title">
+      <div class="section-head">
+        <p class="eyebrow">Keep exploring</p>
+        <h2 id="more-title">More of my work</h2>
+      </div>
+      <ul class="more-work">
+          <li><a href="../../projects/tremor/"><span class="an-line">I analyze <em>tremor patient data</em>.</span><span class="an-where">Encora Therapeutics</span></a></li>
+          <li><a href="../../dissertation/"><span class="an-line">I analyze <em>mouse brain architecture</em>.</span><span class="an-where">PhD dissertation</span></a></li>
+          <li><a href="../../projects/brain-heart/"><span class="an-line">I analyze <em>brain-heart connectivity</em>.</span><span class="an-where">Undergraduate research</span></a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-foot" id="contact">
+    <div class="inner">
+      <div class="contact">
+        <p class="eyebrow">Contact</p>
+        <h2>Let's talk</h2>
+        <div class="email-row">
+          <span class="email" id="email-address">will.songyang.wang@gmail.com</span>
+          <button type="button" class="copy-btn" data-copy="email-address">Copy</button>
+          <span class="sr-only" role="status" id="copy-status"></span>
+        </div>
+      </div>
+      <div class="foot-links">
+        <a href="mailto:will.songyang.wang@gmail.com">Email</a>
+        <a href="https://github.com/Songyang-W" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/williamsywang" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <p class="fine">© 2026 William (Songyang) Wang</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CWNQJVRGQM"></script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag("js", new Date()); gtag("config", "G-CWNQJVRGQM");</script>
+  <title>Brain-heart connectivity with multimodal deep learning | William (Songyang) Wang</title>
+  <meta name="description" content="Predicting outcomes from EEG, ECG, time-series and tabular data with deep and interpretable models. UC Irvine undergraduate research, 2018 to 2020.">
+  <link rel="canonical" href="https://songyang-w.github.io/projects/brain-heart/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0f14" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="William (Songyang) Wang">
+  <meta property="og:title" content="Brain-heart connectivity with multimodal deep learning">
+  <meta property="og:description" content="Predicting outcomes from EEG, ECG, time-series and tabular data with deep and interpretable models. UC Irvine undergraduate research, 2018 to 2020.">
+  <meta property="og:url" content="https://songyang-w.github.io/projects/brain-heart/">
+  <meta property="og:image" content="https://songyang-w.github.io/assets/img/headshot-640.jpg">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../../assets/css/site.css">
+  <script>try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-head">
+    <div class="inner">
+      <a class="logo" href="../../">William <span class="alt">(Songyang)</span> Wang</a>
+      <nav class="nav" aria-label="Main">
+        <a href="../../#timeline-section" class="optional">Projects</a>
+        <a href="../../dissertation/"><span class="long">PhD </span>Dissertation</a>
+        <a href="../../#skills" class="optional">Skills</a>
+        <a href="#contact" class="optional-xs">Contact</a>
+        <button type="button" class="theme-btn" id="theme-toggle">Dark</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="project-hero inner" aria-labelledby="page-title">
+      <p class="crumbs"><a href="../../#timeline-section">Projects</a> / Brain-heart connectivity with multimodal deep learning</p>
+      <p class="eyebrow">UC Irvine · Undergraduate research · 2018 → 2020</p>
+      <h1 id="page-title">Brain-heart connectivity with multimodal deep learning</h1>
+      <p class="pitch">The brain and the heart constantly influence each other. Using data from a cohort of more than 1,000 animals, I combined EEG, ECG, other time series and tabular data to predict outcomes, and used interpretable models to see which signals drove each prediction.</p>
+      <ul class="tags" aria-label="Skills used"><li>CNN-LSTM</li><li>Random forest</li><li>XGBoost</li><li>LightGBM</li><li>SHAP</li><li>EEG and ECG</li></ul>
+      <dl class="facts">
+          <div><dt>Role</dt><dd>Undergraduate researcher</dd></div>
+          <div><dt>When</dt><dd>2018 to 2020</dd></div>
+          <div><dt>Data</dt><dd>EEG, ECG, time series, tabular</dd></div>
+          <div><dt>Impact</dt><dd>Supported a funded NIH R01</dd></div>
+      </dl>
+    </section>
+
+    <section class="band inner" aria-labelledby="challenge-title">
+      <div class="section-head">
+        <p class="eyebrow">The problem</p>
+        <h2 id="challenge-title">What made it hard</h2>
+      </div>
+      <div class="prose">
+        <p>Each animal comes with several kinds of data recorded at different rates and scales. The model has to fuse them into one prediction.</p>
+        <p>The results also have to be explainable, so the scientists using them can see why the model made each call.</p>
+      </div>
+    </section>
+
+    <section class="band inner" aria-labelledby="built-title">
+      <div class="section-head">
+        <p class="eyebrow">My work</p>
+        <h2 id="built-title">What I built</h2>
+      </div>
+      <ul class="built">
+        <li><h3>Hybrid CNN-LSTM</h3><p>Convolutional layers pick up local patterns in the signals and an LSTM follows how they change over time (+3% AUC).</p></li>
+        <li><h3>Strong classical baselines</h3><p>Tuned random forest, XGBoost and LightGBM models on the same multimodal features.</p></li>
+        <li><h3>Interpretability</h3><p>Used SHAP to show which features drove each prediction.</p></li>
+        <li><h3>Impact</h3><p>The results contributed to a funded NIH R01 grant.</p></li>
+      </ul>
+    </section>
+
+    <section class="band inner" aria-labelledby="more-title">
+      <div class="section-head">
+        <p class="eyebrow">Keep exploring</p>
+        <h2 id="more-title">More of my work</h2>
+      </div>
+      <ul class="more-work">
+          <li><a href="../../projects/tremor/"><span class="an-line">I analyze <em>tremor patient data</em>.</span><span class="an-where">Encora Therapeutics</span></a></li>
+          <li><a href="../../dissertation/"><span class="an-line">I analyze <em>mouse brain architecture</em>.</span><span class="an-where">PhD dissertation</span></a></li>
+          <li><a href="../../projects/bci-compass/"><span class="an-line">I analyze <em>synthetic human brain data</em>.</span><span class="an-where">BCI hackathon, 2nd place</span></a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-foot" id="contact">
+    <div class="inner">
+      <div class="contact">
+        <p class="eyebrow">Contact</p>
+        <h2>Let's talk</h2>
+        <div class="email-row">
+          <span class="email" id="email-address">will.songyang.wang@gmail.com</span>
+          <button type="button" class="copy-btn" data-copy="email-address">Copy</button>
+          <span class="sr-only" role="status" id="copy-status"></span>
+        </div>
+      </div>
+      <div class="foot-links">
+        <a href="mailto:will.songyang.wang@gmail.com">Email</a>
+        <a href="https://github.com/Songyang-W" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/williamsywang" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <p class="fine">© 2026 William (Songyang) Wang</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/site.js"></script>
+</body>
+</html>

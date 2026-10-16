@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CWNQJVRGQM"></script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag("js", new Date()); gtag("config", "G-CWNQJVRGQM");</script>
+  <title>Grading tremor severity with computer vision | William (Songyang) Wang</title>
+  <meta name="description" content="Computer vision models that grade clinical tremor severity, from benchmarking to a deployed API. Encora Therapeutics, 2026.">
+  <link rel="canonical" href="https://songyang-w.github.io/projects/tremor/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0f14" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="William (Songyang) Wang">
+  <meta property="og:title" content="Grading tremor severity with computer vision">
+  <meta property="og:description" content="Computer vision models that grade clinical tremor severity, from benchmarking to a deployed API. Encora Therapeutics, 2026.">
+  <meta property="og:url" content="https://songyang-w.github.io/projects/tremor/">
+  <meta property="og:image" content="https://songyang-w.github.io/assets/img/headshot-640.jpg">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../../assets/css/site.css">
+  <script>try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-head">
+    <div class="inner">
+      <a class="logo" href="../../">William <span class="alt">(Songyang)</span> Wang</a>
+      <nav class="nav" aria-label="Main">
+        <a href="../../#timeline-section" class="optional">Projects</a>
+        <a href="../../dissertation/"><span class="long">PhD </span>Dissertation</a>
+        <a href="../../#skills" class="optional">Skills</a>
+        <a href="#contact" class="optional-xs">Contact</a>
+        <button type="button" class="theme-btn" id="theme-toggle">Dark</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="project-hero inner" aria-labelledby="page-title">
+      <p class="crumbs"><a href="../../#timeline-section">Projects</a> / Grading tremor severity with computer vision</p>
+      <p class="eyebrow">Encora Therapeutics · Data Scientist Intern · 2026 → now</p>
+      <h1 id="page-title">Grading tremor severity with computer vision</h1>
+      <p class="pitch">Clinicians grade tremor severity on an ordinal scale. I build computer vision models that learn to assign those grades, and take them from benchmarking all the way to a deployed service.</p>
+      <ul class="tags" aria-label="Skills used"><li>PyTorch</li><li>CNNs</li><li>Transfer learning</li><li>FastAPI</li><li>Docker</li><li>AWS EC2</li></ul>
+      <dl class="facts">
+          <div><dt>Role</dt><dd>Data Scientist Intern</dd></div>
+          <div><dt>When</dt><dd>2026 to now</dd></div>
+          <div><dt>Status</dt><dd>Manuscript in preparation</dd></div>
+          <div><dt>Stack</dt><dd>PyTorch, FastAPI, AWS</dd></div>
+      </dl>
+    </section>
+
+    <section class="band inner" aria-labelledby="challenge-title">
+      <div class="section-head">
+        <p class="eyebrow">The problem</p>
+        <h2 id="challenge-title">What made it hard</h2>
+      </div>
+      <div class="prose">
+        <p>A useful model has to grade patients it has never seen. Every comparison therefore uses subject-independent cross-validation: the people in the test set never appear in training.</p>
+        <p>The model also has to run reliably outside a notebook, so the work covers the full path from data pipeline to a service that other tools can call.</p>
+      </div>
+    </section>
+
+    <section class="band inner" aria-labelledby="built-title">
+      <div class="section-head">
+        <p class="eyebrow">My work</p>
+        <h2 id="built-title">What I built</h2>
+      </div>
+      <ul class="built">
+        <li><h3>Fair benchmarking</h3><p>Compared CNN architectures under subject-independent cross-validation, so scores reflect performance on new patients.</p></li>
+        <li><h3>Parameter-efficient training</h3><p>A small head trained on top of a frozen backbone matched a fully fine-tuned model while training only a tiny fraction of the parameters.</p></li>
+        <li><h3>Faster training</h3><p>Diagnosed GPU starvation caused by sequential CPU augmentation and rebuilt the PyTorch input pipeline with multi-worker overlapped prefetch.</p></li>
+        <li><h3>Attention ablation</h3><p>Showed that where a CBAM attention module sits in a residual CNN, inside the residual branch or after the residual sum, decides whether the model learns or collapses to chance.</p></li>
+        <li><h3>Deployment</h3><p>Shipped the model as a containerized FastAPI inference service on AWS EC2, with the API decoupled from model logic so models can be swapped and tested without touching the interface.</p></li>
+        <li><h3>Reliable code</h3><p>Config-driven preprocessing, training and evaluation modules share one model definition, which exposed and fixed a silent failure caused by a train and eval architecture mismatch.</p></li>
+      </ul>
+    </section>
+
+    <section class="band inner" aria-labelledby="more-title">
+      <div class="section-head">
+        <p class="eyebrow">Keep exploring</p>
+        <h2 id="more-title">More of my work</h2>
+      </div>
+      <ul class="more-work">
+          <li><a href="../../dissertation/"><span class="an-line">I analyze <em>mouse brain architecture</em>.</span><span class="an-where">PhD dissertation</span></a></li>
+          <li><a href="../../projects/brain-heart/"><span class="an-line">I analyze <em>brain-heart connectivity</em>.</span><span class="an-where">Undergraduate research</span></a></li>
+          <li><a href="../../projects/bci-compass/"><span class="an-line">I analyze <em>synthetic human brain data</em>.</span><span class="an-where">BCI hackathon, 2nd place</span></a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-foot" id="contact">
+    <div class="inner">
+      <div class="contact">
+        <p class="eyebrow">Contact</p>
+        <h2>Let's talk</h2>
+        <div class="email-row">
+          <span class="email" id="email-address">will.songyang.wang@gmail.com</span>
+          <button type="button" class="copy-btn" data-copy="email-address">Copy</button>
+          <span class="sr-only" role="status" id="copy-status"></span>
+        </div>
+      </div>
+      <div class="foot-links">
+        <a href="mailto:will.songyang.wang@gmail.com">Email</a>
+        <a href="https://github.com/Songyang-W" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/williamsywang" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <p class="fine">© 2026 William (Songyang) Wang</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/site.js"></script>
+</body>
+</html>
