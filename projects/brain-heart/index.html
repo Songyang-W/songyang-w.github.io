@@ -42,7 +42,7 @@
 
   <main id="main">
     <section class="project-hero inner" aria-labelledby="page-title">
-      <p class="crumbs"><a href="../../#timeline-section">Projects</a> / Brain-heart connectivity with multimodal deep learning</p>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="../../#timeline-section">Projects</a> / <span aria-current="page">Brain-heart connectivity with multimodal deep learning</span></nav>
       <p class="eyebrow">UC Irvine · Undergraduate research · 2018 → 2020</p>
       <h1 id="page-title">Brain-heart connectivity with multimodal deep learning</h1>
       <p class="pitch">The brain and the heart constantly influence each other. Using data from a cohort of more than 1,000 animals, I combined EEG, ECG, other time series and tabular data to predict outcomes, and used interpretable models to see which signals drove each prediction.</p>
@@ -61,8 +61,8 @@
         <h2 id="challenge-title">What made it hard</h2>
       </div>
       <div class="prose">
-        <p>Each animal comes with several kinds of data recorded at different rates and scales. The model has to fuse them into one prediction.</p>
-        <p>The results also have to be explainable, so the scientists using them can see why the model made each call.</p>
+        <p>Each animal comes with several kinds of data: EEG, ECG, other time series and tabular records. The model has to fuse them into one prediction.</p>
+        <p>Interpretability mattered too, so the models could show which signals drove each prediction.</p>
       </div>
     </section>
 
@@ -73,7 +73,7 @@
       </div>
       <ul class="built">
         <li><h3>Hybrid CNN-LSTM</h3><p>Convolutional layers pick up local patterns in the signals and an LSTM follows how they change over time (+3% AUC).</p></li>
-        <li><h3>Strong classical baselines</h3><p>Tuned random forest, XGBoost and LightGBM models on the same multimodal features.</p></li>
+        <li><h3>Classical models</h3><p>Tuned random forest, XGBoost and LightGBM models.</p></li>
         <li><h3>Interpretability</h3><p>Used SHAP to show which features drove each prediction.</p></li>
         <li><h3>Impact</h3><p>The results contributed to a funded NIH R01 grant.</p></li>
       </ul>

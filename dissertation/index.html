@@ -103,11 +103,47 @@
       </div>
     </section>
 
+    <section class="band inner" id="data" aria-labelledby="data-title">
+      <div class="section-head">
+        <p class="eyebrow">The data</p>
+        <h2 id="data-title">A look at the data</h2>
+      </div>
+      <div class="media-grid">
+        <figure class="media">
+          <div class="media-frame">
+            <video data-loop muted loop playsinline preload="metadata" poster="../assets/media/two-photon-poster.jpg" aria-label="Two-photon calcium imaging movie of neurons in the touch cortex">
+              <source src="../assets/media/two-photon.mp4" type="video/mp4">
+            </video>
+            <button type="button" class="motion-btn">Pause</button>
+          </div>
+          <figcaption>Two-photon calcium imaging of the touch cortex. Each bright spot is a neuron, and it brightens when the neuron is active.</figcaption>
+        </figure>
+        <figure class="media">
+          <div class="media-frame">
+            <video data-loop muted loop playsinline preload="metadata" poster="../assets/media/seven-neurons-poster.jpg" aria-label="Seven reconstructed neurons, highlighted one at a time">
+              <source src="../assets/media/seven-neurons.mp4" type="video/mp4">
+            </video>
+            <button type="button" class="motion-btn">Pause</button>
+          </div>
+          <figcaption>Seven neurons reconstructed from the electron microscopy volume, highlighted one at a time.</figcaption>
+        </figure>
+        <figure class="media wide">
+          <div class="media-frame">
+            <picture>
+              <source type="image/webp" srcset="../assets/media/415-neurons-800.webp 800w, ../assets/media/415-neurons-1530.webp 1530w" sizes="(max-width: 1160px) 100vw, 1080px">
+              <img src="../assets/media/415-neurons-1530.jpg" srcset="../assets/media/415-neurons-800.jpg 800w, ../assets/media/415-neurons-1530.jpg 1530w" sizes="(max-width: 1160px) 100vw, 1080px" width="1530" height="990" loading="lazy" alt="Render of all 415 reconstructed neurons: colored spheres for cell bodies above a dense tangle of colored branches">
+            </picture>
+          </div>
+          <figcaption>All 415 reconstructed neurons. Spheres mark cell bodies, and the colored lines are their branches.</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section class="band inner" id="engineering" aria-labelledby="engineering-title">
       <div class="section-head">
         <p class="eyebrow">The engineering</p>
         <h2 id="engineering-title">Building the map, then learning from it</h2>
-        <p>The connectomics side of the project ran in two stages on the same electron microscopy volume.</p>
+        <p>Alongside the science, the connectomics work ran in two stages: building the dataset, then teaching models to learn from it.</p>
       </div>
       <div class="stage-cards">
         <article id="stage-1">
@@ -125,7 +161,7 @@
           <h3>Self-supervised contrastive learning for connectomics</h3>
           <p class="tl-org">Boston University, Graduate Research Assistant · 2024 to 2026</p>
           <ul>
-            <li>Reimplemented SegCLR and SynapseCLR from TensorFlow in PyTorch and adapted them to this EM data, with a custom normalization method to bridge data domains.</li>
+            <li>Reimplemented SegCLR and SynapseCLR from TensorFlow in PyTorch, with a custom normalization method to bridge data domains, and refined SynapseCLR on synapses from this volume.</li>
             <li>Scaled contrastive pretraining across 2 V100 GPUs with PyTorch DistributedDataParallel, learning view-invariant embeddings of neurons.</li>
             <li>Trained on about 1 TB of 3D EM with out-of-core loading of pre-extracted 256 × 256 × 256 cutouts.</li>
             <li>Shipped a reproducible package for downstream classifiers (best model 0.86 accuracy), so cell-type labels can reach beyond the hand-annotated neurons.</li>

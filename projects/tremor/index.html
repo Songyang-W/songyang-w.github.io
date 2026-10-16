@@ -42,10 +42,10 @@
 
   <main id="main">
     <section class="project-hero inner" aria-labelledby="page-title">
-      <p class="crumbs"><a href="../../#timeline-section">Projects</a> / Grading tremor severity with computer vision</p>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="../../#timeline-section">Projects</a> / <span aria-current="page">Grading tremor severity with computer vision</span></nav>
       <p class="eyebrow">Encora Therapeutics · Data Scientist Intern · 2026 → now</p>
       <h1 id="page-title">Grading tremor severity with computer vision</h1>
-      <p class="pitch">Clinicians grade tremor severity on an ordinal scale. I build computer vision models that learn to assign those grades, and take them from benchmarking all the way to a deployed service.</p>
+      <p class="pitch">Tremor severity is rated on an ordinal scale. I build computer vision models that learn to assign those grades, and take them from benchmarking all the way to a deployed service.</p>
       <ul class="tags" aria-label="Skills used"><li>PyTorch</li><li>CNNs</li><li>Transfer learning</li><li>FastAPI</li><li>Docker</li><li>AWS EC2</li></ul>
       <dl class="facts">
           <div><dt>Role</dt><dd>Data Scientist Intern</dd></div>
@@ -74,10 +74,10 @@
       <ul class="built">
         <li><h3>Fair benchmarking</h3><p>Compared CNN architectures under subject-independent cross-validation, so scores reflect performance on new patients.</p></li>
         <li><h3>Parameter-efficient training</h3><p>A small head trained on top of a frozen backbone matched a fully fine-tuned model while training only a tiny fraction of the parameters.</p></li>
-        <li><h3>Faster training</h3><p>Diagnosed GPU starvation caused by sequential CPU augmentation and rebuilt the PyTorch input pipeline with multi-worker overlapped prefetch.</p></li>
+        <li><h3>Faster training</h3><p>Diagnosed GPU starvation caused by sequential CPU augmentation and reconfigured the PyTorch input pipeline with multi-worker overlapped prefetch.</p></li>
         <li><h3>Attention ablation</h3><p>Showed that where a CBAM attention module sits in a residual CNN, inside the residual branch or after the residual sum, decides whether the model learns or collapses to chance.</p></li>
         <li><h3>Deployment</h3><p>Shipped the model as a containerized FastAPI inference service on AWS EC2, with the API decoupled from model logic so models can be swapped and tested without touching the interface.</p></li>
-        <li><h3>Reliable code</h3><p>Config-driven preprocessing, training and evaluation modules share one model definition, which exposed and fixed a silent failure caused by a train and eval architecture mismatch.</p></li>
+        <li><h3>Reliable code</h3><p>Config-driven preprocessing, training and evaluation modules share one model definition. I also root-caused a silent failure to a train and eval architecture mismatch.</p></li>
       </ul>
     </section>
 

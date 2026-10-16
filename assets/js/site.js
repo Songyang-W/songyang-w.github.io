@@ -32,6 +32,29 @@
   onMediaChange(darkQuery, syncThemeButton);
   syncThemeButton();
 
+  /* Looping videos: play only while visible and when motion is allowed, with a pause button. */
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  document.querySelectorAll("video[data-loop]").forEach(function (video) {
+    var btn = video.parentNode.querySelector(".motion-btn");
+    var paused = reduceMotion.matches, visible = false;
+    function sync() {
+      if (!paused && visible) {
+        var playing = video.play();
+        if (playing && playing.catch) playing.catch(function () { /* autoplay blocked */ });
+      } else {
+        video.pause();
+      }
+      if (btn) btn.textContent = paused ? "Play" : "Pause";
+    }
+    if (btn) btn.addEventListener("click", function () { paused = !paused; sync(); });
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (es) { visible = es[0].isIntersecting; sync(); }, { threshold: 0.25 }).observe(video);
+    } else {
+      visible = true;
+      sync();
+    }
+  });
+
   /* Copy email. Falls back to selecting the address if the clipboard is unavailable. */
   function selectText(el) {
     var range = document.createRange();

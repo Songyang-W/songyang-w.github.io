@@ -1,6 +1,5 @@
-/* Layout: left-aligned hero (headshot on the home page, a live neuron on the dissertation page), a two-lane
-   timeline on a central year axis (where I studied and worked | what I built), then featured work, skills and
-   contact. One accent: the red of the RCaMP calcium indicator used in the dissertation. Light by default. */
+/* Layout: left-aligned hero (headshot and four "I analyze" links on the home page, a live neuron on the
+   dissertation page), a single-column project timeline on a year rail, project pages, skills and contact. One accent: the red of the RCaMP calcium indicator used in the dissertation. Light by default. */
 :root {
   --bg: #f6f7f9;
   --surface: #ffffff;
@@ -314,7 +313,7 @@ section { scroll-margin-top: 72px; }
 .stats-band .proof { margin-top: 0; }
 
 /* project pages */
-.crumbs { font-family: var(--f-mono); font-size: 12.5px; color: var(--muted); }
+.crumbs { font-family: var(--f-mono); font-size: 13px; color: var(--muted); }
 .crumbs a { color: var(--muted); }
 .project-hero { display: flex; flex-direction: column; gap: 14px; padding-block: 48px 8px; }
 .project-hero > * { max-width: 860px; }
@@ -326,7 +325,7 @@ section { scroll-margin-top: 72px; }
 @media (max-width: 760px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .built { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .built li { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
-.built h3 { font-size: 17px; font-stretch: 105%; }
+.built h3 { font-size: 17px; font-stretch: 105%; line-height: 1.3; }
 .built p { color: var(--muted); font-size: 15px; }
 @media (max-width: 760px) { .built { grid-template-columns: minmax(0, 1fr); } }
 .more-work { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
@@ -336,11 +335,20 @@ section { scroll-margin-top: 72px; }
 @media (max-width: 860px) { .more-work { grid-template-columns: minmax(0, 1fr); } }
 .stage-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 .stage-cards article { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; min-width: 0; scroll-margin-top: 80px; }
-.stage-cards h3 { font-size: 20px; }
+.stage-cards h3 { font-size: 20px; line-height: 1.25; }
 .stage-cards .tl-org { margin-top: -2px; }
 .stage-cards ul { margin: 4px 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; }
 .stage-cards article:target { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
 @media (max-width: 860px) { .stage-cards { grid-template-columns: minmax(0, 1fr); } }
+
+/* media figures: dark frames, like microscope images, in both themes */
+.media-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.media { margin: 0; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.media.wide { grid-column: 1 / -1; }
+.media-frame { position: relative; background: #3b3b3b; border-radius: var(--radius); overflow: hidden; }
+.media-frame video, .media-frame img { display: block; width: 100%; height: auto; }
+.media figcaption { font-size: 14px; color: var(--muted); max-width: 70ch; }
+@media (max-width: 760px) { .media-grid { grid-template-columns: minmax(0, 1fr); } }
 
 /* footer */
 .site-foot { border-top: 1px solid var(--line); margin-top: 32px; }

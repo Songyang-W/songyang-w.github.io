@@ -39,7 +39,7 @@ window.TIMELINE = [
     when: "Jan 2026", label: "Hackathon",
     title: "2nd place, Brain Storm BCI Hackathon",
     org: "Compass, a real-time cortical guidance tool",
-    summary: "Real-time guidance for placing a 1024-channel micro-ECoG array, built on synthetic human brain data.",
+    summary: "Real-time guidance for placing a 1,024-channel micro-ECoG array, built on synthetic human brain data.",
     page: "projects/bci-compass/",
     bullets: [
       "Built the real-time backend for a full-stack web app that guides surgical placement of the array.",
@@ -53,7 +53,7 @@ window.TIMELINE = [
     group: "connectomics", stage: "Stage 1 · Build the dataset",
     title: "Data operations for a 657 TB EM volume",
     org: "Harvard Medical School, Visiting PhD Student",
-    summary: "Ran the full lifecycle of the electron microscopy volume and led the team that reconstructed 415 neurons from it.",
+    summary: "Ran data operations across the full lifecycle of the electron microscopy volume and led the team that reconstructed 415 neurons from it.",
     page: "dissertation/#stage-1",
     bullets: [
       "Ran data operations across acquisition, preprocessing, GCP migration and segmentation handoff to an external vendor, then built the downstream ML analysis on the returned data.",

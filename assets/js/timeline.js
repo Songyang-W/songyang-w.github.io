@@ -40,9 +40,10 @@
     return item;
   }
 
-  function pageLink(href, label) {
+  function pageLink(href, label, title) {
     var a = make("a", "tl-page", label);
     a.href = href;
+    if (title) a.setAttribute("aria-label", label + ": " + title);
     return a;
   }
 
@@ -116,7 +117,7 @@
       });
       actions.appendChild(btn);
     }
-    if (entry.page) actions.appendChild(pageLink(entry.page, entry.group ? "Read more" : "Project page"));
+    if (entry.page) actions.appendChild(pageLink(entry.page, entry.group ? "Read more" : "Project page", entry.title));
     if (actions.children.length) card.appendChild(actions);
     if (panel) card.appendChild(panel);
     if (entry.draft) card.appendChild(make("p", "tl-draft", "Details coming soon"));

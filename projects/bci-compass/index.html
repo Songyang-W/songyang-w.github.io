@@ -42,10 +42,10 @@
 
   <main id="main">
     <section class="project-hero inner" aria-labelledby="page-title">
-      <p class="crumbs"><a href="../../#timeline-section">Projects</a> / Compass</p>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="../../#timeline-section">Projects</a> / <span aria-current="page">Compass</span></nav>
       <p class="eyebrow">Brain Storm BCI Hackathon · January 2026 · 2nd place</p>
       <h1 id="page-title">Compass: real-time guidance for a 1,024-channel brain array</h1>
-      <p class="pitch">During neurosurgery, a thin micro-ECoG array with 1,024 channels can be placed on the surface of the brain. Compass reads the array's signals live and turns them into guidance for the surgical team. Working with synthetic human brain data, I built the real-time backend and the models behind it.</p>
+      <p class="pitch">During neurosurgery, a thin micro-ECoG array with 1,024 channels can be placed on the surface of the brain. Compass reads the array's signals live and turns them into guidance for the surgical team. With my hackathon team, working on synthetic human brain data, I built the real-time backend and the models behind it.</p>
       <ul class="tags" aria-label="Skills used"><li>U-Net</li><li>3D CNN</li><li>Real-time inference</li><li>Signal denoising</li><li>Tracking</li></ul>
       <dl class="facts">
           <div><dt>Result</dt><dd>2nd place</dd></div>
@@ -76,7 +76,7 @@
         <li><h3>Tiny denoiser</h3><p>A lightweight U-Net, about 274 KB, that cleans the signals in under 5 ms on a CPU.</p></li>
         <li><h3>Decoder</h3><p>A 3D CNN that decodes 2D movement-direction vectors from the array's signals.</p></li>
         <li><h3>Stable tracking</h3><p>Motion-aware cluster tracking that stays stable as the array drifts.</p></li>
-        <li><h3>Speed</h3><p>Under 50 ms end to end, feeding a hands-free operating-room interface at 30 to 60 FPS.</p></li>
+        <li><h3>Speed</h3><p>Under 50 ms end to end, feeding the team's hands-free operating-room interface at 30 to 60 FPS.</p></li>
       </ul>
     </section>
 
