@@ -58,7 +58,7 @@ window.TIMELINE = [
     bullets: [
       "Ran data operations across acquisition, preprocessing, GCP migration and segmentation handoff to an external vendor, then built the downstream ML analysis on the returned data.",
       "Extended 2D stitching and 3D reconstruction on a Slurm HPC cluster for a 7× speedup and 85% lower memory.",
-      "Led a team of about 15 (undergraduates and a postdoc) with no formal authority to deliver 415 proofread neuron reconstructions in about 1.5 years, one of the largest proofread sets in a single volume."
+      "Led a 15-person team (undergraduates and a postdoc) with no formal authority to deliver 415 proofread neuron reconstructions in about 1.5 years, one of the largest proofread sets in a single volume."
     ],
     tags: ["GCP", "Slurm HPC", "Data pipelines", "Team lead"]
   },
@@ -79,17 +79,27 @@ window.TIMELINE = [
   },
   {
     when: "2021 → 2022", label: "Engineering",
-    title: "Magnetic automatic head-fixed home cage",
+    title: "Automatic head-fixing home cage",
     org: "Chen Lab, Boston University",
-    summary: "Design of a magnetic, automatic head-fixed home cage.",
-    draft: true
+    summary: "A magnetic home cage where mice train on their own and learn to head-fix for two-photon imaging.",
+    page: "projects/homecage/",
+    bullets: [
+      "Designed the cage so mice train in their own cage on a systematic schedule, with less handling.",
+      "Each mouse learns to place its head plate into a holder, which then fixes the head automatically for two-photon imaging."
+    ],
+    tags: ["CAD", "Mechanical design", "Automation"]
   },
   {
     when: "2019 → 2020", label: "Engineering",
-    title: "Portable blood pressure device",
+    title: "Wearable blood pressure sensor for stroke monitoring",
     org: "Senior design, UC Irvine",
-    summary: "A non-invasive, real-time, portable blood pressure measurement device built on waveform analysis.",
-    draft: true
+    summary: "A wearable, non-invasive sensor for continuous blood pressure monitoring, aimed at early detection of ischemic stroke.",
+    page: "projects/bp-sensor/",
+    bullets: [
+      "Designed a ring-shaped wearable housing with a Velcro strap that holds two thin-film capacitive pressure sensors.",
+      "Tested the sensor against a reference pressure transducer in occlusion tests, and the design on human models and in simulations."
+    ],
+    tags: ["Sensor design", "CAD", "Signal analysis"]
   },
   {
     when: "2018 → 2020", label: "Research",

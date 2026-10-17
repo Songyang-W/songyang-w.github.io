@@ -48,9 +48,19 @@
         <p class="official"><em>Structural and Functional Organization of Somatosensory Cortex Microcircuits in Working-Memory-Related Processing.</em> Advisor: Jerry L. Chen.</p>
       </div>
       <figure class="hero-visual">
-        <canvas id="neuron" role="img" aria-label="Illustration of a neuron with synapses marked in red"></canvas>
+        <canvas id="neuron" role="img" aria-label="A neuron reconstructed from my electron microscopy data, with the synapses it receives in red and the synapses it sends in teal"></canvas>
         <button type="button" class="motion-btn" id="neuron-toggle">Pause</button>
-        <figcaption>Drag to rotate · illustration, my reconstructed neurons coming soon</figcaption>
+        <figcaption>
+          <span class="neuron-picker" id="neuron-picker" role="group" aria-label="Choose a neuron"></span>
+          <span class="legend">
+            <span><span class="sw sw-dend"></span>Dendrites</span>
+            <span><span class="sw sw-axon"></span>Axon</span>
+            <span><span class="dot dot-in"></span>Synapses received</span>
+            <span><span class="dot dot-out"></span>Synapses sent</span>
+          </span>
+          <span class="neuron-stats" id="neuron-stats" aria-live="polite"></span>
+          <span class="neuron-note">Real neurons from my dataset. Drag to rotate.</span>
+        </figcaption>
       </figure>
     </section>
 
@@ -153,7 +163,7 @@
           <ul>
             <li>Ran data operations across acquisition, preprocessing, GCP migration and segmentation handoff to an external vendor, then built the downstream ML analysis on the returned data.</li>
             <li>Extended 2D stitching and 3D reconstruction on a Slurm HPC cluster for a 7× speedup and 85% lower memory.</li>
-            <li>Led a team of about 15 (undergraduates and a postdoc) with no formal authority to deliver 415 proofread neuron reconstructions in about 1.5 years.</li>
+            <li>Led a 15-person team (undergraduates and a postdoc) with no formal authority to deliver 415 proofread neuron reconstructions in about 1.5 years.</li>
           </ul>
         </article>
         <article id="stage-2">
@@ -217,6 +227,7 @@
           <li><a href="../projects/brain-heart/"><span class="an-line">I analyze <em>brain-heart connectivity</em>.</span><span class="an-where">Undergraduate research</span></a></li>
           <li><a href="../projects/bci-compass/"><span class="an-line">I analyze <em>synthetic human brain data</em>.</span><span class="an-where">BCI hackathon, 2nd place</span></a></li>
       </ul>
+      <p class="more-also">Engineering projects: <a href="../projects/homecage/">Automatic head-fixing home cage</a> and <a href="../projects/bp-sensor/">Wearable blood pressure sensor</a></p>
     </section>
   </main>
 
@@ -241,6 +252,7 @@
   </footer>
 
   <script src="../assets/js/site.js"></script>
+  <script src="../assets/data/neurons.js"></script>
   <script src="../assets/js/neuron.js"></script>
 </body>
 </html>

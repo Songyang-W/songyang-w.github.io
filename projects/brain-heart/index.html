@@ -16,8 +16,8 @@
   <meta property="og:title" content="Brain-heart connectivity with multimodal deep learning">
   <meta property="og:description" content="Predicting outcomes from EEG, ECG, time-series and tabular data with deep and interpretable models. UC Irvine undergraduate research, 2018 to 2020.">
   <meta property="og:url" content="https://songyang-w.github.io/projects/brain-heart/">
-  <meta property="og:image" content="https://songyang-w.github.io/assets/img/headshot-640.jpg">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://songyang-w.github.io/assets/media/projects/bh-ecog-cpr.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -45,7 +45,7 @@
       <nav class="crumbs" aria-label="Breadcrumb"><a href="../../#timeline-section">Projects</a> / <span aria-current="page">Brain-heart connectivity with multimodal deep learning</span></nav>
       <p class="eyebrow">UC Irvine · Undergraduate research · 2018 → 2020</p>
       <h1 id="page-title">Brain-heart connectivity with multimodal deep learning</h1>
-      <p class="pitch">The brain and the heart constantly influence each other. Using data from a cohort of more than 1,000 animals, I combined EEG, ECG, other time series and tabular data to predict outcomes, and used interpretable models to see which signals drove each prediction.</p>
+      <p class="pitch">When the heart stops, brain activity goes quiet within a minute, and survivors of cardiac arrest can be left with lasting brain damage. Using data from a cohort of more than 1,000 animals, I combined EEG, ECG, other time series and tabular data to predict outcomes, and used interpretable models to see which signals drove each prediction.</p>
       <ul class="tags" aria-label="Skills used"><li>CNN-LSTM</li><li>Random forest</li><li>XGBoost</li><li>LightGBM</li><li>SHAP</li><li>EEG and ECG</li></ul>
       <dl class="facts">
           <div><dt>Role</dt><dd>Undergraduate researcher</dd></div>
@@ -61,8 +61,35 @@
         <h2 id="challenge-title">What made it hard</h2>
       </div>
       <div class="prose">
-        <p>Each animal comes with several kinds of data: EEG, ECG, other time series and tabular records. The model has to fuse them into one prediction.</p>
-        <p>Interpretability mattered too, so the models could show which signals drove each prediction.</p>
+        <p>Understanding how the heart and the brain affect each other during cardiac arrest could help prevent permanent brain damage. We found that the onset of a specific cardiac arrhythmia during the arrest might be associated with brain damage after resuscitation.</p>
+        <p>Each animal comes with several kinds of data: EEG, ECG, other time series and tabular records. The model has to fuse them into one prediction, and it has to show which signals drove that prediction.</p>
+      </div>
+    </section>
+
+    <section class="band inner" aria-labelledby="figures-title">
+      <div class="section-head">
+        <p class="eyebrow">A look at the work</p>
+        <h2 id="figures-title">Inside a cardiac arrest recording</h2>
+      </div>
+      <div class="media-grid">
+        <figure class="media wide">
+          <div class="media-frame">
+            <picture>
+              <source type="image/webp" srcset="../../assets/media/projects/bh-ecog-cpr.webp">
+              <img src="../../assets/media/projects/bh-ecog-cpr.jpg" width="1132" height="556" loading="lazy" alt="Raw ECoG trace over 90 seconds: large activity at first, a flat stretch, an arrow marking CPR, then activity returning after about 35 seconds">
+            </picture>
+          </div>
+          <figcaption>Raw ECoG, a recording from the surface of the brain, around the start of CPR (arrow). Brain activity returns about 20 seconds later.</figcaption>
+        </figure>
+        <figure class="media wide">
+          <div class="media-frame">
+            <picture>
+              <source type="image/webp" srcset="../../assets/media/projects/bh-cardiac-arrest-recording.webp">
+              <img src="../../assets/media/projects/bh-cardiac-arrest-recording.jpg" width="1200" height="600" loading="lazy" alt="Eight stacked traces over 8 minutes: EEG, DC potentials, ECG, ventilation and blood pressure, with circles marking a dip in two EEG channels at about 2 minutes">
+            </picture>
+          </div>
+          <figcaption>One recording through cardiac arrest. From top: brain signals (EEG and DC potentials), ECG, ventilation and blood pressure. Asphyxia starts at time 0 and CPR at about 8 minutes. The circles mark spreading depolarization, a slow wave that sweeps across the brain when it runs out of energy.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -76,6 +103,7 @@
         <li><h3>Classical models</h3><p>Tuned random forest, XGBoost and LightGBM models.</p></li>
         <li><h3>Interpretability</h3><p>Used SHAP to show which features drove each prediction.</p></li>
         <li><h3>Impact</h3><p>The results contributed to a funded NIH R01 grant.</p></li>
+        <li><h3>Linking heart and brain</h3><p>Applied several statistical tests across several models to link the onset of the arrhythmia with brain damage after resuscitation.</p></li>
       </ul>
     </section>
 
@@ -89,6 +117,7 @@
           <li><a href="../../dissertation/"><span class="an-line">I analyze <em>mouse brain architecture</em>.</span><span class="an-where">PhD dissertation</span></a></li>
           <li><a href="../../projects/bci-compass/"><span class="an-line">I analyze <em>synthetic human brain data</em>.</span><span class="an-where">BCI hackathon, 2nd place</span></a></li>
       </ul>
+      <p class="more-also">Engineering projects: <a href="../../projects/homecage/">Automatic head-fixing home cage</a> and <a href="../../projects/bp-sensor/">Wearable blood pressure sensor</a></p>
     </section>
   </main>
 

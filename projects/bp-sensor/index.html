@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CWNQJVRGQM"></script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag("js", new Date()); gtag("config", "G-CWNQJVRGQM");</script>
+  <title>A wearable blood pressure sensor for stroke monitoring | William (Songyang) Wang</title>
+  <meta name="description" content="A wearable design built around a new portable blood pressure sensor, for early detection of ischemic stroke. Senior design, UC Irvine, 2019 to 2020.">
+  <link rel="canonical" href="https://songyang-w.github.io/projects/bp-sensor/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0f14" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="William (Songyang) Wang">
+  <meta property="og:title" content="A wearable blood pressure sensor for stroke monitoring">
+  <meta property="og:description" content="A wearable design built around a new portable blood pressure sensor, for early detection of ischemic stroke. Senior design, UC Irvine, 2019 to 2020.">
+  <meta property="og:url" content="https://songyang-w.github.io/projects/bp-sensor/">
+  <meta property="og:image" content="https://songyang-w.github.io/assets/media/projects/bp-housing.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../../assets/css/site.css">
+  <script>try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-head">
+    <div class="inner">
+      <a class="logo" href="../../">William <span class="alt">(Songyang)</span> Wang</a>
+      <nav class="nav" aria-label="Main">
+        <a href="../../#timeline-section" class="optional">Projects</a>
+        <a href="../../dissertation/"><span class="long">PhD </span>Dissertation</a>
+        <a href="../../#skills" class="optional">Skills</a>
+        <a href="#contact" class="optional-xs">Contact</a>
+        <button type="button" class="theme-btn" id="theme-toggle">Dark</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="project-hero inner" aria-labelledby="page-title">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="../../#timeline-section">Projects</a> / <span aria-current="page">A wearable blood pressure sensor for stroke monitoring</span></nav>
+      <p class="eyebrow">UC Irvine · Senior design · 2019 → 2020</p>
+      <h1 id="page-title">A wearable blood pressure sensor for stroke monitoring</h1>
+      <p class="pitch">An ischemic stroke needs treatment within about three hours to limit permanent damage, and it can start at any moment. Our senior design team built a wearable design around a new portable blood pressure sensor, so blood pressure can be monitored continuously and a stroke caught early.</p>
+      <ul class="tags" aria-label="Skills used"><li>Sensor design</li><li>CAD</li><li>Prototyping</li><li>Signal analysis</li><li>Wearables</li></ul>
+      <dl class="facts">
+          <div><dt>Project</dt><dd>Senior design</dd></div>
+          <div><dt>When</dt><dd>2019 to 2020</dd></div>
+          <div><dt>Sensor</dt><dd>Thin-film capacitive</dd></div>
+          <div><dt>Testing</dt><dd>Human models and simulations</dd></div>
+      </dl>
+    </section>
+
+    <section class="band inner" aria-labelledby="challenge-title">
+      <div class="section-head">
+        <p class="eyebrow">The problem</p>
+        <h2 id="challenge-title">What made it hard</h2>
+      </div>
+      <div class="prose">
+        <p>A stroke can begin at any moment, so blood pressure monitoring has to be portable and continuous to catch it early.</p>
+        <p>A new sensor also has to earn trust. Its signal has to be checked against a reference measurement, including when blood flow is suddenly blocked.</p>
+      </div>
+    </section>
+
+    <section class="band inner" aria-labelledby="figures-title">
+      <div class="section-head">
+        <p class="eyebrow">A look at the work</p>
+        <h2 id="figures-title">From prototype to test bench</h2>
+      </div>
+      <div class="media-grid">
+        <figure class="media">
+          <div class="media-frame">
+            <picture>
+              <source type="image/webp" srcset="../../assets/media/projects/bp-housing.webp">
+              <img src="../../assets/media/projects/bp-housing.jpg" width="1200" height="960" loading="lazy" alt="CAD render of a ring-shaped wearable with a Velcro strap, two sensor pads, wire holes and an electrode wire opening, with an inset photo of the sensor held in a gloved hand">
+            </picture>
+          </div>
+          <figcaption>The wearable housing. A Velcro strap closes the ring, two pads hold the sensors, and the electrode wires leave through an opening at the bottom.</figcaption>
+        </figure>
+        <figure class="media">
+          <div class="media-frame">
+            <picture>
+              <source type="image/webp" srcset="../../assets/media/projects/bp-prototype-cad.webp">
+              <img src="../../assets/media/projects/bp-prototype-cad.jpg" width="754" height="536" loading="lazy" alt="Line drawing of the U-shaped first prototype with dimensions of 1.72, 3.00 and 4.50 inches, and an inset photo of the thin-film sensor">
+            </picture>
+          </div>
+          <figcaption>The first prototype with its dimensions in inches. Inset: the thin-film sensor.</figcaption>
+        </figure>
+        <figure class="media wide">
+          <div class="media-frame">
+            <picture>
+              <source type="image/webp" srcset="../../assets/media/projects/bp-occlusion-test.webp">
+              <img src="../../assets/media/projects/bp-occlusion-test.jpg" width="1058" height="622" loading="lazy" alt="Two plots over 120 seconds: a reference blood pressure trace between 100 and 145 mmHg on top, and the sensor's capacitance below, which drops sharply between a red and a yellow line">
+            </picture>
+          </div>
+          <figcaption>An occlusion test. Top: a reference pressure transducer sampled at 1000 Hz. Bottom: our sensor. Between the red and yellow lines, flow was blocked, and the sensor's signal dropped clearly before recovering.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="band inner" aria-labelledby="built-title">
+      <div class="section-head">
+        <p class="eyebrow">My work</p>
+        <h2 id="built-title">What we built</h2>
+      </div>
+      <ul class="built">
+        <li><h3>Wearable housing</h3><p>A ring-shaped housing with a Velcro strap holds two sensors in place, with through-holes and an opening to route the electrode wires.</p></li>
+        <li><h3>Portable sensor</h3><p>A thin-film capacitive pressure sensor that rests against the skin and follows the pulse.</p></li>
+        <li><h3>Occlusion tests</h3><p>Compared the sensor with a reference pressure transducer while flow was blocked and released.</p></li>
+        <li><h3>Reliability testing</h3><p>Tested the design on human models and in simulations.</p></li>
+      </ul>
+    </section>
+
+    <section class="band inner" aria-labelledby="more-title">
+      <div class="section-head">
+        <p class="eyebrow">Keep exploring</p>
+        <h2 id="more-title">More of my work</h2>
+      </div>
+      <ul class="more-work">
+          <li><a href="../../projects/tremor/"><span class="an-line">I analyze <em>tremor patient data</em>.</span><span class="an-where">Encora Therapeutics</span></a></li>
+          <li><a href="../../dissertation/"><span class="an-line">I analyze <em>mouse brain architecture</em>.</span><span class="an-where">PhD dissertation</span></a></li>
+          <li><a href="../../projects/brain-heart/"><span class="an-line">I analyze <em>brain-heart connectivity</em>.</span><span class="an-where">Undergraduate research</span></a></li>
+          <li><a href="../../projects/bci-compass/"><span class="an-line">I analyze <em>synthetic human brain data</em>.</span><span class="an-where">BCI hackathon, 2nd place</span></a></li>
+      </ul>
+      <p class="more-also">Engineering projects: <a href="../../projects/homecage/">Automatic head-fixing home cage</a></p>
+    </section>
+  </main>
+
+  <footer class="site-foot" id="contact">
+    <div class="inner">
+      <div class="contact">
+        <p class="eyebrow">Contact</p>
+        <h2>Let's talk</h2>
+        <div class="email-row">
+          <span class="email" id="email-address">will.songyang.wang@gmail.com</span>
+          <button type="button" class="copy-btn" data-copy="email-address">Copy</button>
+          <span class="sr-only" role="status" id="copy-status"></span>
+        </div>
+      </div>
+      <div class="foot-links">
+        <a href="mailto:will.songyang.wang@gmail.com">Email</a>
+        <a href="https://github.com/Songyang-W" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/williamsywang" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <p class="fine">© 2026 William (Songyang) Wang</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/site.js"></script>
+</body>
+</html>

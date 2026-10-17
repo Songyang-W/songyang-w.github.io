@@ -10,6 +10,7 @@
   --accent: #c41e56;
   --on-accent: #ffffff;
   --accent-soft: #fbe4ec;
+  --accent-2: #0f766e;
   --bar: #848f9e;
   --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --f-body: "IBM Plex Sans", "Segoe UI", Roboto, Arial, sans-serif;
@@ -20,13 +21,13 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0c0f14; --surface: #141921; --surface-2: #1b212a; --ink: #e6e9ee; --muted: #9aa3b0;
-    --line: #262d37; --accent: #ff5a8c; --on-accent: #16070d; --accent-soft: #3a1424; --bar: #5d6878;
+    --line: #262d37; --accent: #ff5a8c; --on-accent: #16070d; --accent-soft: #3a1424; --accent-2: #2dd4bf; --bar: #5d6878;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #0c0f14; --surface: #141921; --surface-2: #1b212a; --ink: #e6e9ee; --muted: #9aa3b0;
-  --line: #262d37; --accent: #ff5a8c; --on-accent: #16070d; --accent-soft: #3a1424; --bar: #5d6878;
+  --line: #262d37; --accent: #ff5a8c; --on-accent: #16070d; --accent-soft: #3a1424; --accent-2: #2dd4bf; --bar: #5d6878;
   color-scheme: dark;
 }
 
@@ -147,6 +148,21 @@ p { margin: 0; }
 }
 .hero-visual canvas:active { cursor: grabbing; }
 .hero-visual figcaption { font-family: var(--f-mono); font-size: 12px; color: var(--muted); margin-top: 6px; }
+.hero-visual figcaption { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.neuron-picker { display: flex; flex-wrap: wrap; gap: 6px; }
+.neuron-picker button { font: 500 12.5px var(--f-mono); padding: 4px 11px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); cursor: pointer; }
+.neuron-picker button:hover { color: var(--ink); border-color: var(--muted); }
+.neuron-picker button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font: 400 12.5px var(--f-body); color: var(--muted); }
+.legend > span { display: inline-flex; align-items: center; gap: 6px; }
+.sw { display: inline-block; width: 16px; height: 2px; border-radius: 1px; }
+.sw-dend { background: var(--ink); }
+.sw-axon { background: var(--accent-2); }
+.dot { display: inline-block; width: 6px; height: 6px; }
+.dot-in { background: var(--accent); }
+.dot-out { background: var(--accent-2); }
+.neuron-stats { font: 400 13px var(--f-body); color: var(--ink); }
+.neuron-note { font: 400 12px var(--f-mono); color: var(--muted); }
 .motion-btn {
   position: absolute; top: 8px; right: 8px; font: 500 11.5px var(--f-mono); letter-spacing: 0.05em; text-transform: uppercase;
   color: var(--muted); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; cursor: pointer;
@@ -327,12 +343,14 @@ section { scroll-margin-top: 72px; }
 .built li { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .built h3 { font-size: 17px; font-stretch: 105%; line-height: 1.3; }
 .built p { color: var(--muted); font-size: 15px; }
+.built li:last-child:nth-child(odd) { grid-column: 1 / -1; }
 @media (max-width: 760px) { .built { grid-template-columns: minmax(0, 1fr); } }
-.more-work { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.more-work { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
 .more-work a { height: 100%; display: flex; flex-direction: column; justify-content: space-between; gap: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; color: var(--ink); text-decoration: none; }
 .more-work a:hover { border-color: var(--accent); }
 .more-work .an-line { font-size: 18px; }
 @media (max-width: 860px) { .more-work { grid-template-columns: minmax(0, 1fr); } }
+.more-also { margin-top: 16px; color: var(--muted); font-size: 15px; }
 .stage-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 .stage-cards article { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; min-width: 0; scroll-margin-top: 80px; }
 .stage-cards h3 { font-size: 20px; line-height: 1.25; }
