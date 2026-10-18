@@ -64,6 +64,82 @@
       </figure>
     </section>
 
+    <section class="band inner" id="in-the-news" aria-labelledby="news-title">
+      <div class="section-head">
+        <p class="eyebrow">Connectomics in your feed</p>
+        <h2 id="news-title">The brain maps behind the viral posts</h2>
+        <p>In 2026, fruit fly wiring maps ended up inside Doom and a virtual fly body. The stunts are fun, but the maps underneath took years to build.</p>
+      </div>
+      <div class="news">
+        <article class="news-card lead">
+          <p class="news-kicker">Cell · 404 Media · Sep 2026</p>
+          <h3>The internet wired a fly brain map into Doom</h3>
+          <p>In September 2026, Janelia, Google and Cambridge published the first complete wiring map of a male fruit fly's brain and nerve cord. Within days, hobbyists hooked it up to Doom, Minecraft and Super Mario 64. A lot of hand-built code sits on top, so these are fun demos, not a fly that understands games.</p>
+          <div class="news-foot">
+            <p class="news-stat"><b>166,700</b><span>neurons in the male fly's brain and nerve cord</span></p>
+            <a class="news-link" href="https://www.404media.co/a-digital-fly-brain-has-taken-over-the-internet/" target="_blank" rel="noopener">Read the 404 Media story</a>
+          </div>
+        </article>
+        <article class="news-card">
+          <p class="news-kicker">Eon Systems · Mar 2026</p>
+          <h3>A startup said it uploaded a fly. Scientists pushed back.</h3>
+          <p>Eon's virtual fly walks, grooms and feeds, driven by a brain model built from the FlyWire wiring map. Scientists noted that a few hand-picked neurons steer ready-made motor controllers, and that the model's whole-brain activity had not been checked against a real fly's.</p>
+          <div class="news-foot">
+            <a class="news-link" href="https://www.thetransmitter.org/systems-neuroscience/digital-sphinx-raises-questions-about-connectome-models/" target="_blank" rel="noopener">What scientists said, in The Transmitter</a>
+          </div>
+        </article>
+        <article class="news-card">
+          <p class="news-kicker">Nature · Oct 2024</p>
+          <h3>Gamers helped map the first whole adult fly brain</h3>
+          <p>AI traced 139,255 neurons and about 50 million synapses, then scientists and volunteer gamers spent about 33 person-years fixing its mistakes. A simulation built from this map predicted feeding and grooming circuits that experiments confirmed. It is the brain model inside Eon's fly.</p>
+          <div class="news-foot">
+            <p class="news-stat"><b>146</b><span>labs took part</span></p>
+            <a class="news-link" href="https://flywire.ai/" target="_blank" rel="noopener">Explore the fly brain on FlyWire</a>
+          </div>
+        </article>
+        <article class="news-card">
+          <p class="news-kicker">Science · May 2024</p>
+          <h3>A speck of human brain fills 1.4 petabytes</h3>
+          <p>Harvard and Google mapped one cubic millimeter of human temporal cortex, removed during epilepsy surgery, down to single synapses. Of its roughly 57,000 cells, only about 16,000 are neurons.</p>
+          <div class="news-foot">
+            <p class="news-stat"><b>150 million</b><span>synapses</span></p>
+            <a class="news-link" href="https://h01-release.storage.googleapis.com/landing.html" target="_blank" rel="noopener">Explore the human cortex data</a>
+          </div>
+        </article>
+        <article class="news-card">
+          <p class="news-kicker">Nature · Apr 2025</p>
+          <h3>A mouse watched movies, then its wiring was mapped</h3>
+          <p>The MICrONS team recorded about 75,000 neurons while a mouse watched movies, then mapped the same cubic millimeter of visual cortex with electron microscopy: more than 200,000 cells and about 4 km of axons. Activity and wiring from the same neurons is called a functional connectome.</p>
+          <div class="news-foot">
+            <p class="news-stat"><b>523 million</b><span>synapses</span></p>
+            <a class="news-link" href="https://www.microns-explorer.org/" target="_blank" rel="noopener">Explore MICrONS</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="bridge">
+        <div class="bridge-text">
+          <p class="eyebrow">My PhD</p>
+          <h3>I built one of these for my PhD</h3>
+          <p>My dataset is the same kind as MICrONS, on a smaller scale: activity first, then wiring, in the same neurons. A mouse learned to compare two touches separated by a delay, and I recorded neurons in its touch cortex with two-photon imaging while it worked.</p>
+          <p>Then the same tissue went under the electron microscope: 2,323 slices of 50 nm, about 120 µm deep, imaged at 3.75 nm per pixel, for 657 TB of raw images. I ran the data operations for the whole volume and led the 15-person team that traced and proofread its neurons.</p>
+          <div class="actions">
+            <a class="btn primary" href="#engineering">See how I built it</a>
+            <a class="btn" href="#data">See the data</a>
+          </div>
+        </div>
+        <figure class="ladder sizes" aria-labelledby="sizes-title">
+          <p class="eyebrow" id="sizes-title">Electron microscopy image data, as reported</p>
+          <div class="rung"><div class="lab">MICrONS<small>mouse visual cortex, 2025</small></div><div class="track"><div class="fill" style="width:100%"></div></div><div class="val">1.6 PB</div></div>
+          <div class="rung"><div class="lab">H01<small>human cortex, 2024</small></div><div class="track"><div class="fill" style="width:87.5%"></div></div><div class="val">1.4 PB</div></div>
+          <div class="rung mapped"><div class="lab">My volume<small>mouse touch cortex</small></div><div class="track"><div class="fill" style="width:41.1%"></div></div><div class="val">657 TB</div></div>
+          <div class="rung"><div class="lab">Whole fly brain<small>the images behind FlyWire</small></div><div class="track"><div class="fill" style="width:6.6%"></div></div><div class="val">106 TB</div></div>
+          <p class="ladder-note">Size depends on image resolution, so it does not show how much brain was mapped.</p>
+        </figure>
+      </div>
+      <p class="sources">Sources: Male fly central nervous system connectome, <a href="https://doi.org/10.1016/j.cell.2026.08.015" target="_blank" rel="noopener">Cell, Sep 2026</a> · 404 Media, Sep 2026 · P. Mineault, NeuroAI, Sep 2026 · Eon Systems, Mar 2026 · The Transmitter, 2026 · <a href="https://www.nature.com/articles/s41586-024-07558-y" target="_blank" rel="noopener">Dorkenwald et al., Nature 2024</a> (FlyWire) · <a href="https://www.nature.com/articles/s41586-024-07763-9" target="_blank" rel="noopener">Shiu et al., Nature 2024</a> · <a href="https://www.science.org/doi/10.1126/science.adk4858" target="_blank" rel="noopener">Shapson-Coe et al., Science 2024</a> (H01) · <a href="https://www.nature.com/articles/s41586-025-08790-w" target="_blank" rel="noopener">MICrONS Consortium, Nature 2025</a> and the Allen Institute (4 km of axons, 1.6 PB) · Zheng et al., Cell 2018 (fly brain images, 106 TB on disk).</p>
+    </section>
+
     <section class="band inner" id="connectomics" aria-labelledby="connectomics-title">
       <div class="section-head">
         <p class="eyebrow">Background</p>
@@ -85,17 +161,7 @@
         <p class="ladder-note"><b>Red</b> brains have complete wiring maps. Whole mouse and human brains are still far out of reach, so the field maps small pieces in great detail.</p>
       </figure>
 
-      <div class="compare">
-        <div>
-          <h3>MICrONS, 2025</h3>
-          <p>One cubic millimeter of mouse visual cortex, about a grain of sand: roughly 200,000 cells, half a billion synapses and 1.6 petabytes of images.</p>
-        </div>
-        <div class="mine">
-          <h3>My volume</h3>
-          <p>Part of the mouse touch cortex (S1 and S2): 2,323 slices of 50 nm spanning about 120 µm of depth, imaged at 3.75 nm per pixel. 657 TB of raw images.</p>
-        </div>
-      </div>
-      <p class="sources">Sources: White et al. 1986 · Winding et al., Science 2023 · Dorkenwald et al., Nature 2024 · Herculano-Houzel et al. 2006 · Azevedo et al. 2009 · <a href="https://www.microns-explorer.org/" target="_blank" rel="noopener">MICrONS Consortium, Nature 2025</a>.</p>
+      <p class="sources">Sources: White et al. 1986 · Winding et al., Science 2023 · Dorkenwald et al., Nature 2024 · Herculano-Houzel et al. 2006 · Azevedo et al. 2009.</p>
     </section>
 
     <section class="band inner" id="numbers" aria-labelledby="numbers-title">
