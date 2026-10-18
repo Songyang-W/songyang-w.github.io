@@ -1,5 +1,6 @@
 /* Layout: left-aligned hero (portrait and four "I analyze" links on the home page, a live neuron on the
-   dissertation page), a single-column project timeline on a year rail, project pages, skills and contact. One accent: the red of the RCaMP calcium indicator used in the dissertation. Light by default. */
+   dissertation page), a single-column project timeline on a year rail, project pages, skills and contact. One accent: the red of the RCaMP calcium indicator used in the dissertation. Light by default.
+   GitHub Pages caches this file for 10 minutes: when it changes, bump the ?v= on every page's link to it. */
 :root {
   --bg: #f6f7f9;
   --surface: #ffffff;
@@ -66,6 +67,7 @@ a { color: var(--accent); text-underline-offset: 3px; }
 h1, h2, h3, h4 { font-family: var(--f-display); font-stretch: 112%; letter-spacing: -0.015em; text-wrap: balance; margin: 0; }
 h1 { font-size: clamp(38px, 6.2vw, 62px); line-height: 1.02; font-weight: 800; }
 h1 .paren { color: var(--muted); font-weight: 650; }
+h1 .h1-sub { display: block; margin-top: 0.3em; color: var(--muted); font-weight: 650; font-size: 0.56em; line-height: 1.1; }
 h2 { font-size: clamp(26px, 3.6vw, 36px); font-weight: 780; line-height: 1.1; }
 p { margin: 0; }
 
@@ -274,43 +276,56 @@ section { scroll-margin-top: 72px; }
 .ladder-note { font-size: 13.5px; color: var(--muted); }
 .ladder-note b { color: var(--accent); font-weight: 600; }
 
-/* neurons per brain: the SVG stretches to the box and draws only lines; dots and labels are HTML so text never scales.
-   The five columns under the plot line up with the five points (x = 10%, 30% ... 90%). */
+/* neurons per brain: the SVG stretches to the plot and draws only lines; dots and labels are HTML so text never scales.
+   Points sit at x = 10%, 30% ... 90%. On a 20-column grid each callout spans 30% around its point, above or below
+   the plot, and its tail plus a leader line in the SVG point at the dot. Small screens stack the callouts. */
 .growth { margin: 24px 0 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; display: flex; flex-direction: column; gap: 14px; }
-.growth-plot { position: relative; aspect-ratio: 1000 / 330; margin-top: 6px; }
+.growth-chart { display: grid; grid-template-columns: repeat(20, minmax(0, 1fr)); margin-top: 6px; }
+.growth-plot { grid-area: 2 / 1 / 3 / -1; position: relative; height: clamp(240px, 27vw, 300px); }
 .growth-plot svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.g-grid { stroke: var(--line); stroke-width: 1; vector-effect: non-scaling-stroke; }
-.g-drop { stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 4; vector-effect: non-scaling-stroke; }
+.g-grid { stroke: var(--line); stroke-width: 1; }
+.g-lead { stroke: var(--muted); stroke-opacity: 0.6; stroke-width: 1; stroke-dasharray: 2 3; }
+.g-grid line, .g-lead line { vector-effect: non-scaling-stroke; }
 .g-line { fill: none; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
 .g-done { stroke: var(--accent); }
 .g-todo { stroke: var(--bar); stroke-dasharray: 6 6; }
 .g-tick { position: absolute; left: 0; transform: translateY(-100%); padding-bottom: 2px; font: 400 11px var(--f-mono); color: var(--muted); }
-.g-pt { position: absolute; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: var(--surface); border: 2px solid var(--bar); }
+.g-pt { position: absolute; z-index: 1; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: var(--surface); border: 2px solid var(--bar); }
 .g-pt.done { background: var(--accent); border-color: var(--accent); }
 .g-val { position: absolute; transform: translate(calc(-100% - 10px), calc(-100% - 3px)); font: 500 13px var(--f-mono); white-space: nowrap; font-variant-numeric: tabular-nums; }
-.g-val.right { transform: translate(10px, calc(-100% - 3px)); }
-.g-sp { display: none; color: var(--muted); font-weight: 400; }
-.growth-cols { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
-.growth-cols li { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.growth-cols h3 { font-size: 16px; font-stretch: 105%; text-align: center; }
-.g-meta { font: 400 12px var(--f-mono); color: var(--muted); text-align: center; }
-.g-news { flex: 1; margin-top: 8px; display: flex; flex-direction: column; gap: 6px; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 12px 12px 14px; }
-.g-news p:not(.news-kicker) { font-size: 13.5px; line-height: 1.45; color: var(--muted); }
-.g-news .news-link { margin-top: auto; font-size: 12px; }
-.growth-cols .mine .g-news { border-color: var(--accent); background: var(--accent-soft); }
-.growth-cols .mine .g-news p:not(.news-kicker) { color: var(--ink); }
-@media (max-width: 900px) {
-  .growth-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .growth-cols h3, .g-meta { text-align: left; }
-  .g-drop { display: none; }
-  .g-sp { display: inline; }
-  .g-val.right { transform: translate(8px, 4px); }
+.g-val.below { transform: translate(8px, 5px); }
+.g-sp { color: var(--muted); font-weight: 400; }
+.g-call {
+  --call-bg: var(--bg); --call-line: var(--line);
+  position: relative; min-width: 0; display: flex; flex-direction: column; gap: 4px;
+  background: var(--call-bg); border: 1px solid var(--call-line); border-radius: 8px; padding: 11px 14px 12px;
+}
+.g-call p:not(.news-kicker) { font-size: 13.5px; line-height: 1.45; color: var(--muted); }
+.g-call .news-link { margin-top: 2px; font-size: 12px; }
+.g-call.mine { --call-bg: var(--accent-soft); --call-line: var(--accent); }
+.g-call.mine p:not(.news-kicker) { color: var(--ink); }
+.g-call::before, .g-call::after { content: ""; position: absolute; left: var(--tail, 50%); margin-left: -8px; border: 8px solid transparent; }
+.g-call.up { align-self: end; margin-bottom: 9px; }
+.g-call.up::before { top: 100%; border-top-color: var(--call-line); }
+.g-call.up::after { top: calc(100% - 1.5px); border-top-color: var(--call-bg); }
+.g-call.down { align-self: start; margin-top: 9px; }
+.g-call.down::before { bottom: 100%; border-bottom-color: var(--call-line); }
+.g-call.down::after { bottom: calc(100% - 1.5px); border-bottom-color: var(--call-bg); }
+.c-worm { grid-area: 1 / 1 / 2 / 7; --tail: 33.333%; }
+.c-fly { grid-area: 1 / 8 / 2 / 14; }
+.c-human { grid-area: 1 / 15 / 2 / 21; --tail: 66.667%; }
+.c-larva { grid-area: 3 / 4 / 4 / 10; }
+.c-mouse { grid-area: 3 / 12 / 4 / 18; }
+@media (max-width: 720px) {
+  .growth-chart { display: flex; flex-direction: column; gap: 10px; }
+  .growth-plot { height: auto; aspect-ratio: 4 / 3; margin-bottom: 8px; }
+  .g-call.up, .g-call.down { margin: 0; }
+  .g-call::before, .g-call::after, .g-lead { display: none; }
 }
 @media (max-width: 560px) {
   .growth { padding: 16px; }
   .growth-plot { aspect-ratio: 1 / 1; }
   .g-tick { left: auto; right: 0; }
-  .growth-cols { grid-template-columns: minmax(0, 1fr); }
   .g-val { font-size: 11.5px; }
 }
 .nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }

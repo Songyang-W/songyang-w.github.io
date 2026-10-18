@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
-  <link rel="stylesheet" href="../assets/css/site.css">
+  <link rel="stylesheet" href="../assets/css/site.css?v=20261018">
   <script>try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}</script>
 </head>
 <body>
@@ -43,7 +43,7 @@
     <section class="hero inner" aria-labelledby="page-title">
       <div class="hero-text">
         <p class="eyebrow">My PhD dissertation · Boston University · 2026</p>
-        <h1 id="page-title">Mapping a memory circuit, synapse by synapse</h1>
+        <h1 id="page-title">Mapping a memory circuit, synapse by synapse <span class="h1-sub">in a biological neural network</span></h1>
         <p class="pitch">Can the part of the brain that feels touch also help hold a memory? I recorded neurons in a mouse's touch cortex while it remembered and compared touches, then mapped the wiring between those same neurons with electron microscopy.</p>
         <p class="official"><em>Structural and Functional Organization of Somatosensory Cortex Microcircuits in Working-Memory-Related Processing.</em> Advisor: Jerry L. Chen.</p>
       </div>
@@ -170,7 +170,7 @@
             </li>
             <li>
               <span class="inst inst-princeton" role="img" aria-label="Princeton University"></span>
-              <p><b>Data collection</b><span>Electron microscopy support</span></p>
+              <p><a href="https://seunglab.org/" target="_blank" rel="noopener">Seung Lab</a><span>Where I worked during data collection · electron microscopy</span></p>
             </li>
             <li>
               <span class="inst inst-mpfi" role="img" aria-label="Max Planck Florida Institute for Neuroscience"></span>
@@ -194,85 +194,69 @@
 
       <figure class="growth" aria-labelledby="growth-title">
         <p class="eyebrow" id="growth-title">Neurons per brain, log scale</p>
-        <div class="growth-plot" role="img" aria-label="Line plot of neurons per brain on a log scale. Worm: 302, mapped. Fruit fly larva: 3,016, mapped. Adult fruit fly: 139,255, mapped. Mouse: about 71 million, not mapped. Human: about 86 billion, not mapped.">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-            <line class="g-grid" x1="0" x2="100" y1="92" y2="92"/>
-            <line class="g-grid" x1="0" x2="100" y1="73.3" y2="73.3"/>
-            <line class="g-grid" x1="0" x2="100" y1="54.7" y2="54.7"/>
-            <line class="g-grid" x1="0" x2="100" y1="36" y2="36"/>
-            <line class="g-grid" x1="0" x2="100" y1="17.3" y2="17.3"/>
-            <line class="g-drop" x1="10" x2="10" y1="87.5" y2="100"/>
-            <line class="g-drop" x1="30" x2="30" y1="78.2" y2="100"/>
-            <line class="g-drop" x1="50" x2="50" y1="62.7" y2="100"/>
-            <line class="g-drop" x1="70" x2="70" y1="37.4" y2="100"/>
-            <line class="g-drop" x1="90" x2="90" y1="8.6" y2="100"/>
-            <polyline class="g-line g-todo" points="50,62.7 70,37.4 90,8.6"/>
-            <polyline class="g-line g-done" points="10,87.5 30,78.2 50,62.7"/>
-          </svg>
-          <span class="g-tick" style="top:92%">100</span>
-          <span class="g-tick" style="top:73.3%">10K</span>
-          <span class="g-tick" style="top:54.7%">1M</span>
-          <span class="g-tick" style="top:36%">100M</span>
-          <span class="g-tick" style="top:17.3%">10B</span>
-          <span class="g-pt done" style="left:10%;top:87.5%"></span>
-          <span class="g-pt done" style="left:30%;top:78.2%"></span>
-          <span class="g-pt done" style="left:50%;top:62.7%"></span>
-          <span class="g-pt" style="left:70%;top:37.4%"></span>
-          <span class="g-pt" style="left:90%;top:8.6%"></span>
-          <span class="g-val right" style="left:10%;top:87.5%"><span class="g-sp">Worm </span>302</span>
-          <span class="g-val" style="left:30%;top:78.2%"><span class="g-sp">Larva </span>3,016</span>
-          <span class="g-val" style="left:50%;top:62.7%"><span class="g-sp">Fly </span>139,255</span>
-          <span class="g-val" style="left:70%;top:37.4%"><span class="g-sp">Mouse </span>~71 million</span>
-          <span class="g-val" style="left:90%;top:8.6%"><span class="g-sp">Human </span>~86 billion</span>
+        <div class="growth-chart">
+          <div class="growth-plot" role="img" aria-label="Line plot of neurons per brain on a log scale. Worm: 302, mapped. Fruit fly larva: 3,016, mapped. Adult fruit fly: 139,255, mapped. Mouse: about 71 million, not mapped. Human: about 86 billion, not mapped.">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <g class="g-grid" fill="none">
+                <line x1="0" x2="100" y1="92" y2="92"/>
+                <line x1="0" x2="100" y1="73.3" y2="73.3"/>
+                <line x1="0" x2="100" y1="54.7" y2="54.7"/>
+                <line x1="0" x2="100" y1="36" y2="36"/>
+                <line x1="0" x2="100" y1="17.3" y2="17.3"/>
+              </g>
+              <g class="g-lead" fill="none">
+                <line x1="10" x2="10" y1="0" y2="87.5"/>
+                <line x1="30" x2="30" y1="78.2" y2="100"/>
+                <line x1="50" x2="50" y1="0" y2="62.7"/>
+                <line x1="70" x2="70" y1="37.4" y2="100"/>
+                <line x1="90" x2="90" y1="0" y2="8.6"/>
+              </g>
+              <polyline class="g-line g-todo" fill="none" points="50,62.7 70,37.4 90,8.6"/>
+              <polyline class="g-line g-done" fill="none" points="10,87.5 30,78.2 50,62.7"/>
+            </svg>
+            <span class="g-tick" style="top:92%">100</span>
+            <span class="g-tick" style="top:73.3%">10K</span>
+            <span class="g-tick" style="top:54.7%">1M</span>
+            <span class="g-tick" style="top:36%">100M</span>
+            <span class="g-tick" style="top:17.3%">10B</span>
+            <span class="g-pt done" style="left:10%;top:87.5%"></span>
+            <span class="g-pt done" style="left:30%;top:78.2%"></span>
+            <span class="g-pt done" style="left:50%;top:62.7%"></span>
+            <span class="g-pt" style="left:70%;top:37.4%"></span>
+            <span class="g-pt" style="left:90%;top:8.6%"></span>
+            <span class="g-val below" style="left:10%;top:87.5%"><span class="g-sp">Worm</span> 302</span>
+            <span class="g-val" style="left:30%;top:78.2%"><span class="g-sp">Larva</span> 3,016</span>
+            <span class="g-val" style="left:50%;top:62.7%"><span class="g-sp">Fly</span> 139,255</span>
+            <span class="g-val" style="left:70%;top:37.4%"><span class="g-sp">Mouse</span> ~71 million</span>
+            <span class="g-val side" style="left:90%;top:8.6%"><span class="g-sp">Human</span> ~86 billion</span>
+          </div>
+          <div class="g-call up c-worm">
+            <p class="news-kicker">Worm · Robotics · 2014</p>
+            <p>The OpenWorm project loaded the worm's wiring map into a LEGO robot, with no moves programmed in. Triggering its sonar "nose" stopped it, and its "food" sensor sent it forward.</p>
+            <a class="news-link" href="https://www.sciencealert.com/scientists-put-worm-brain-in-lego-robot-openworm-connectome" target="_blank" rel="noopener">ScienceAlert</a>
+          </div>
+          <div class="g-call down c-larva">
+            <p class="news-kicker">Fly larva · AI · 2023</p>
+            <p>The first complete map of an insect brain, a maggot's, showed learning circuits full of feedback loops. Its authors said they resemble powerful machine learning architectures.</p>
+            <a class="news-link" href="https://www.nsf.gov/news/scientists-complete-first-map-insect-brain" target="_blank" rel="noopener">NSF</a>
+          </div>
+          <div class="g-call up c-fly">
+            <p class="news-kicker">Adult fly · Startups · 2026</p>
+            <p>Eon Systems ran a brain model built from this map inside a virtual fly body. After a male fly map came out in September, people wired it into Doom, Wordle and Beat Saber.</p>
+            <a class="news-link up" href="#in-the-news">See the posts</a>
+          </div>
+          <div class="g-call down c-mouse mine">
+            <p class="news-kicker">Mouse · My PhD</p>
+            <p>No whole mouse brain has been mapped, so labs map small pieces in great detail. My dataset is one of those pieces: a patch of touch cortex, with both activity and wiring.</p>
+            <a class="news-link down" href="#numbers">See the numbers</a>
+          </div>
+          <div class="g-call up c-human">
+            <p class="news-kicker">Human · Google · 2024</p>
+            <p>Google and Harvard mapped one cubic millimeter of human cortex, removed during epilepsy surgery: about 57,000 cells and 150 million synapses, in 1.4 petabytes of images.</p>
+            <a class="news-link" href="https://h01-release.storage.googleapis.com/landing.html" target="_blank" rel="noopener">Explore the data</a>
+          </div>
         </div>
-        <ol class="growth-cols">
-          <li>
-            <h3>Worm</h3>
-            <p class="g-meta">Mapped 1986</p>
-            <div class="g-news">
-              <p class="news-kicker">Robotics · 2014</p>
-              <p>The OpenWorm project loaded the worm's wiring map into a LEGO robot, with no moves programmed in. Triggering its sonar "nose" stopped it, and its "food" sensor sent it forward.</p>
-              <a class="news-link" href="https://www.sciencealert.com/scientists-put-worm-brain-in-lego-robot-openworm-connectome" target="_blank" rel="noopener">ScienceAlert</a>
-            </div>
-          </li>
-          <li>
-            <h3>Fruit fly larva</h3>
-            <p class="g-meta">Mapped 2023</p>
-            <div class="g-news">
-              <p class="news-kicker">AI · 2023</p>
-              <p>The first complete map of an insect brain, a maggot's, showed learning circuits full of feedback loops. Its authors said they resemble powerful machine learning architectures.</p>
-              <a class="news-link" href="https://www.nsf.gov/news/scientists-complete-first-map-insect-brain" target="_blank" rel="noopener">NSF</a>
-            </div>
-          </li>
-          <li>
-            <h3>Adult fruit fly</h3>
-            <p class="g-meta">Mapped 2024</p>
-            <div class="g-news">
-              <p class="news-kicker">Startups · 2026</p>
-              <p>Eon Systems ran a brain model built from this map inside a virtual fly body. After a male fly map came out in September, people wired it into Doom, Wordle and Beat Saber.</p>
-              <a class="news-link up" href="#in-the-news">See the posts</a>
-            </div>
-          </li>
-          <li class="mine">
-            <h3>Mouse</h3>
-            <p class="g-meta">Not mapped</p>
-            <div class="g-news">
-              <p class="news-kicker">My PhD</p>
-              <p>No whole mouse brain has been mapped, so labs map small pieces in great detail. My dataset is one of those pieces: a patch of touch cortex, with both activity and wiring.</p>
-              <a class="news-link down" href="#numbers">See the numbers</a>
-            </div>
-          </li>
-          <li>
-            <h3>Human</h3>
-            <p class="g-meta">Not mapped</p>
-            <div class="g-news">
-              <p class="news-kicker">Google · 2024</p>
-              <p>Google and Harvard mapped one cubic millimeter of human cortex, removed during epilepsy surgery: about 57,000 cells and 150 million synapses, in 1.4 petabytes of images.</p>
-              <a class="news-link" href="https://h01-release.storage.googleapis.com/landing.html" target="_blank" rel="noopener">Explore the data</a>
-            </div>
-          </li>
-        </ol>
-        <p class="ladder-note"><b>Red</b> brains have complete wiring maps. Whole mouse and human brains are still far out of reach.</p>
+        <p class="ladder-note"><b>Red</b> brains have complete wiring maps: the worm in 1986, the fruit fly larva in 2023 and the adult fruit fly in 2024. Whole mouse and human brains are still far out of reach.</p>
       </figure>
 
       <p class="sources">Sources: White et al. 1986 · Winding et al., Science 2023 · Dorkenwald et al., Nature 2024 · Herculano-Houzel et al. 2006 · Azevedo et al. 2009 · OpenWorm, via ScienceAlert · NSF, Mar 2023 · Eon Systems, Mar 2026 · <a href="https://www.science.org/doi/10.1126/science.adk4858" target="_blank" rel="noopener">Shapson-Coe et al., Science 2024</a>.</p>
@@ -431,8 +415,8 @@
     </div>
   </footer>
 
-  <script src="../assets/js/site.js"></script>
-  <script src="../assets/data/neurons.js"></script>
-  <script src="../assets/js/neuron.js"></script>
+  <script src="../assets/js/site.js?v=20261018"></script>
+  <script src="../assets/data/neurons.js?v=20261018"></script>
+  <script src="../assets/js/neuron.js?v=20261018"></script>
 </body>
 </html>
