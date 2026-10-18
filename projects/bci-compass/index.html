@@ -16,8 +16,8 @@
   <meta property="og:title" content="Compass: real-time guidance for a 1,024-channel brain array">
   <meta property="og:description" content="A real-time cortical guidance tool for placing a 1,024-channel micro-ECoG array, built on synthetic human brain data. 2nd place, Brain Storm BCI Hackathon, January 2026.">
   <meta property="og:url" content="https://songyang-w.github.io/projects/bci-compass/">
-  <meta property="og:image" content="https://songyang-w.github.io/assets/img/portrait-scene-1200.jpg">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://songyang-w.github.io/assets/media/projects/bci-raw-array-poster.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -47,6 +47,7 @@
       <h1 id="page-title">Compass: real-time guidance for a 1,024-channel brain array</h1>
       <p class="pitch">During neurosurgery, a thin micro-ECoG array with 1,024 channels can be placed on the surface of the brain. Compass reads the array's signals live and turns them into guidance for the surgical team. With my hackathon team, working on synthetic human brain data, I built the real-time backend and the models behind it.</p>
       <ul class="tags" aria-label="Skills used"><li>U-Net</li><li>3D CNN</li><li>Real-time inference</li><li>Signal denoising</li><li>Tracking</li></ul>
+      <div class="actions"><a class="btn" href="https://github.com/Songyang-W/brainstorm-track2-public" target="_blank" rel="noopener">Code on GitHub</a><a class="btn" href="https://youtu.be/a3brRuCG1hk" target="_blank" rel="noopener">Watch the demo</a></div>
       <dl class="facts">
           <div><dt>Result</dt><dd>2nd place</dd></div>
           <div><dt>When</dt><dd>January 2026</dd></div>
@@ -63,6 +64,42 @@
       <div class="prose">
         <p>Guidance in an operating room has to be fast, stable and hands-free.</p>
         <p>The signals are noisy and the array can drift as it moves, so the system has to denoise, decode and track in real time.</p>
+      </div>
+    </section>
+
+    <section class="band inner" aria-labelledby="figures-title">
+      <div class="section-head">
+        <p class="eyebrow">A look at the work</p>
+        <h2 id="figures-title">What the array sees</h2>
+      </div>
+      <div class="media-grid">
+        <figure class="media">
+          <div class="media-frame">
+            <video data-loop muted loop playsinline preload="metadata" width="720" height="616" poster="../../assets/media/projects/bci-raw-array-poster.jpg" aria-label="Animated 32 by 32 heat map of array voltage, with red and blue patches of activity drifting over time">
+              <source src="../../assets/media/projects/bci-raw-array.mp4" type="video/mp4">
+            </video>
+            <button type="button" class="motion-btn">Pause</button>
+          </div>
+          <figcaption>The preprocessed signal from all 1,024 channels, drawn as a 32 × 32 map. The patches move because the array itself drifts.</figcaption>
+        </figure>
+        <figure class="media">
+          <div class="media-frame">
+            <video data-loop muted loop playsinline preload="metadata" width="720" height="656" poster="../../assets/media/projects/bci-global-map-poster.jpg" aria-label="Animated map where the 32 by 32 array patch is placed on a larger canvas, so its position on the brain stays fixed as it moves">
+              <source src="../../assets/media/projects/bci-global-map.mp4" type="video/mp4">
+            </video>
+            <button type="button" class="motion-btn">Pause</button>
+          </div>
+          <figcaption>The stabilized global map. Each frame is placed on a larger canvas fixed to the brain, so features stay put while the array moves.</figcaption>
+        </figure>
+        <figure class="media wide">
+          <div class="media-frame">
+            <picture>
+              <source type="image/webp" srcset="../../assets/media/projects/bci-cnn-motion.webp">
+              <img src="../../assets/media/projects/bci-cnn-motion.jpg" width="1600" height="719" loading="lazy" alt="Slide showing a 3D CNN pipeline from a 500 by 32 by 32 voltage cube to a displacement vector, a falling training loss curve, and predicted versus true movement traces that closely overlap">
+            </picture>
+          </div>
+          <figcaption>My 3D CNN takes 1-second clips (500 × 32 × 32) and predicts 2D movement. Right: predictions (orange) follow the true movement (blue).</figcaption>
+        </figure>
       </div>
     </section>
 
