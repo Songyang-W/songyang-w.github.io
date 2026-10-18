@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="../../assets/css/site.css?v=20261018">
+  <link rel="stylesheet" href="../../assets/css/site.css?v=20261018-2">
   <script>try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}</script>
 </head>
 <body>
@@ -45,12 +45,12 @@
       <nav class="crumbs" aria-label="Breadcrumb"><a href="../../#timeline-section">Projects</a> / <span aria-current="page">A home cage where mice learn to head-fix themselves</span></nav>
       <p class="eyebrow">Chen Lab, Boston University · Engineering · 2021 → 2022</p>
       <h1 id="page-title">A home cage where mice learn to head-fix themselves</h1>
-      <p class="pitch">Many mouse experiments need the animal's head held still. I designed a home cage where mice train on their own and learn to place their head in a holder, which then fixes it in place automatically for two-photon imaging.</p>
-      <ul class="tags" aria-label="Skills used"><li>CAD</li><li>Mechanical design</li><li>Automation</li><li>Behavior training</li><li>Two-photon imaging</li></ul>
+      <p class="pitch">Many mouse experiments need the animal's head held still. Building on a mechanical head-fix design from Professor Ben Scott, I optimized the head-fix crown and designed a training module that uses a magnet to teach mice to fix their own heads in their home cage.</p>
+      <ul class="tags" aria-label="Skills used"><li>CAD</li><li>Mechanical design</li><li>LabVIEW</li><li>Arduino</li><li>Behavior training</li></ul>
       <dl class="facts">
           <div><dt>Lab</dt><dd>Chen Lab, BU</dd></div>
           <div><dt>When</dt><dd>2021 to 2022</dd></div>
-          <div><dt>Design</dt><dd>Magnetic, automatic head fixation</dd></div>
+          <div><dt>Tools</dt><dd>LabVIEW, Arduino, Zaber actuator</dd></div>
           <div><dt>Use</dt><dd>Training for two-photon imaging</dd></div>
       </dl>
     </section>
@@ -61,8 +61,8 @@
         <h2 id="challenge-title">What made it hard</h2>
       </div>
       <div class="prose">
-        <p>Most mouse neuroscience experiments require head fixation. A well-trained person can head-fix a mouse by hand, but the process makes the mouse anxious and keeps a person involved at every step.</p>
-        <p>Manual training also sets the schedule. Someone has to put each mouse in, test the sensors and run every session, which limits how efficiently training can happen.</p>
+        <p>Mice are widely used in neuroscience, and most experiments require head fixation. A well-trained person can head-fix a mouse by hand, but the process makes the mouse anxious and keeps a person involved at every step.</p>
+        <p>Manual training also sets the schedule. Someone has to put each mouse in, test the sensors and run every session, which limits efficiency. That is why we brought training into the mouse's home cage.</p>
       </div>
     </section>
 
@@ -72,6 +72,15 @@
         <h2 id="figures-title">The design</h2>
       </div>
       <div class="media-grid">
+        <figure class="media wide">
+          <div class="media-frame">
+            <video data-loop muted loop playsinline preload="metadata" width="960" height="540" poster="../../assets/media/projects/homecage-headfix-poster.jpg" aria-label="Night camera footage of a mouse moving through the bedding of its home cage and climbing toward the head-fix holder at the cage's end">
+              <source src="../../assets/media/projects/homecage-headfix.mp4" type="video/mp4">
+            </video>
+            <button type="button" class="motion-btn">Pause</button>
+          </div>
+          <figcaption>A mouse in the home cage overnight, heading to the head-fix holder at the right. The camera's red light is converted to grayscale and brightened so the mouse and holder are easier to see.</figcaption>
+        </figure>
         <figure class="media wide">
           <div class="media-frame">
             <picture>
@@ -87,12 +96,23 @@
     <section class="band inner" aria-labelledby="built-title">
       <div class="section-head">
         <p class="eyebrow">My work</p>
-        <h2 id="built-title">What I built</h2>
+        <h2 id="built-title">My role</h2>
       </div>
       <ul class="built">
-        <li><h3>Training at home</h3><p>Mice train in their own cage on a systematic schedule, which reduces the human effect on training.</p></li>
-        <li><h3>Voluntary head restraint</h3><p>Each mouse learns to place its head plate into the holder by itself.</p></li>
-        <li><h3>Automatic fixation</h3><p>During an experiment the holder fixes the head automatically, ready for two-photon imaging.</p></li>
+        <li><h3>Head-fix crown</h3><p>The cage builds on a mechanical head-fix design from Professor Ben Scott. I helped optimize the crown that holds the head plate.</p></li>
+        <li><h3>Magnetic training module</h3><p>I designed a training module that uses a magnet to teach each mouse to bring its head plate into the holder.</p></li>
+        <li><h3>Control</h3><p>We mainly used LabVIEW to drive a Zaber linear actuator, along with an Arduino.</p></li>
+      </ul>
+    </section>
+
+    <section class="band inner" aria-labelledby="hard-title">
+      <div class="section-head">
+        <p class="eyebrow">Challenges</p>
+        <h2 id="hard-title">Hardware and training</h2>
+      </div>
+      <ul class="built">
+        <li><h3>Hardware</h3><p>The magnet was not strong enough to hold the mouse.</p></li>
+        <li><h3>Training</h3><p>Mice had to get used to the magnetic attraction.</p></li>
       </ul>
     </section>
 
@@ -131,6 +151,6 @@
     </div>
   </footer>
 
-  <script src="../../assets/js/site.js?v=20261018"></script>
+  <script src="../../assets/js/site.js?v=20261018-2"></script>
 </body>
 </html>
