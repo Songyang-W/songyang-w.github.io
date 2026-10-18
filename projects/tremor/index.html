@@ -16,8 +16,8 @@
   <meta property="og:title" content="Grading tremor severity with computer vision">
   <meta property="og:description" content="Computer vision models that grade clinical tremor severity, from benchmarking to a deployed API. Encora Therapeutics, 2026.">
   <meta property="og:url" content="https://songyang-w.github.io/projects/tremor/">
-  <meta property="og:image" content="https://songyang-w.github.io/assets/img/headshot-640.jpg">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://songyang-w.github.io/assets/media/projects/spiral-score.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -63,6 +63,30 @@
       <div class="prose">
         <p>A useful model has to grade patients it has never seen. Every comparison therefore uses subject-independent cross-validation: the people in the test set never appear in training.</p>
         <p>The model also has to run reliably outside a notebook, so the work covers the full path from data pipeline to a service that other tools can call.</p>
+      </div>
+    </section>
+
+    <section class="band inner" aria-labelledby="figures-title">
+      <div class="section-head">
+        <p class="eyebrow">A look at the work</p>
+        <h2 id="figures-title">Spiral Score, my demo app</h2>
+      </div>
+      <div class="media-grid">
+        <figure class="media">
+          <div class="media-frame">
+            <picture>
+              <source type="image/webp" srcset="../../assets/media/projects/spiral-score.webp">
+              <img src="../../assets/media/projects/spiral-score.jpg" width="1088" height="974" loading="lazy" alt="Spiral Score v3 web app: a framing guide around a red spiral, a button to open the camera with the guide, a button to draw a spiral on the device, and a file upload box">
+            </picture>
+          </div>
+          <figcaption>The front page of Spiral Score.</figcaption>
+        </figure>
+        <div class="media-note prose">
+          <p>A common clinical test asks a person to draw a spiral, because tremor shows up as wobble in the line.</p>
+          <p>Spiral Score is a demo I built to show the model at work. A spiral can come in three ways:</p>
+          <ul><li>A photo from the phone camera, with a guide that frames the paper</li><li>A spiral drawn right on the screen</li><li>An uploaded image</li></ul>
+          <p>The app then scores the spiral.</p>
+        </div>
       </div>
     </section>
 
