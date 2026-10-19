@@ -3,7 +3,8 @@
    <script src="/assets/js/dissertation-chat.js"
            data-endpoint="https://YOUR-WORKER.workers.dev/chat"
            data-email="will.songyang.wang@gmail.com" defer></script>
-   Optional: data-accent="#e4572e"  data-turnstile-sitekey="..." */
+   Optional: data-accent="#e4572e"  data-turnstile-sitekey="..."
+             data-auto-open="2000" opens the panel by itself after 2 s, once per visit, on screens 700px and wider */
 (function () {
   "use strict";
   var script = document.currentScript;
@@ -12,6 +13,7 @@
     email: (script && script.dataset.email) || "will.songyang.wang@gmail.com",
     accent: (script && script.dataset.accent) || "",
     sitekey: (script && script.dataset.turnstileSitekey) || "",
+    autoOpen: script ? script.dataset.autoOpen : undefined,
   };
   if (!cfg.endpoint) { console.warn("dissertation-chat: missing data-endpoint"); return; }
 
@@ -121,6 +123,21 @@
   new MutationObserver(function () { setTimeout(syncTheme, 50); })
     .observe(document.body, { attributes: true, attributeFilter: ["class", "data-theme", "style"] });
   if (window.matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListener("change", syncTheme);
+
+  // Optional: open by itself once per visit. Skipped on phones, where the panel would cover the whole page,
+  // and it does not take keyboard focus, so the visitor can keep reading or close it.
+  var AUTO_KEY = STORE_KEY + "-auto-opened";
+  if (cfg.autoOpen != null && window.matchMedia && matchMedia("(min-width: 700px)").matches) {
+    var opened = false;
+    try { opened = sessionStorage.getItem(AUTO_KEY) === "1"; } catch (e) { /* storage off */ }
+    if (!opened) {
+      setTimeout(function () {
+        if (w.classList.contains("open")) return;
+        w.classList.add("open"); render();
+        try { sessionStorage.setItem(AUTO_KEY, "1"); } catch (e) { /* storage off */ }
+      }, Math.max(0, Number(cfg.autoOpen) || 0));
+    }
+  }
 
   function render() {
     log.innerHTML = "";

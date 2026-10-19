@@ -164,7 +164,6 @@ p { margin: 0; }
 .dot { display: inline-block; width: 6px; height: 6px; }
 .dot-in { background: var(--accent); }
 .dot-out { background: var(--accent-2); }
-.neuron-stats { font: 400 13px var(--f-body); color: var(--ink); }
 .neuron-note { font: 400 12px var(--f-mono); color: var(--muted); }
 .motion-btn {
   position: absolute; top: 8px; right: 8px; font: 500 11.5px var(--f-mono); letter-spacing: 0.05em; text-transform: uppercase;
@@ -304,9 +303,13 @@ section { scroll-margin-top: 72px; }
 .g-brn { fill: var(--accent); }
 .g-brn-big { opacity: 0.55; }
 .g-sulcus { fill: none; stroke: var(--surface); stroke-width: 1.4; stroke-linecap: round; }
-.g-size, .g-mag { position: absolute; font: 400 10.5px var(--f-mono); color: var(--muted); white-space: nowrap; letter-spacing: 0.02em; }
+.g-size { position: absolute; font: 400 10.5px var(--f-mono); color: var(--muted); white-space: nowrap; letter-spacing: 0.02em; }
 .g-fig-human .g-size { top: 100%; left: 50%; transform: translateX(-50%); margin-top: 4px; }
-.g-mag { top: 50%; left: 100%; transform: translateY(-50%); margin-left: 5px; font-weight: 500; }
+.g-zoom { position: absolute; }
+.g-cone { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.g-cone line { stroke: var(--muted); stroke-opacity: 0.55; stroke-width: 1; vector-effect: non-scaling-stroke; }
+.g-lens { position: absolute; display: flex; align-items: center; justify-content: center; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 4px 14px -6px rgb(18 22 29 / 0.35); }
+.g-lens svg { display: block; height: auto; overflow: visible; }
 .g-call {
   --call-bg: var(--bg); --call-line: var(--line);
   position: relative; min-width: 0; display: flex; flex-direction: column; gap: 4px;
@@ -341,7 +344,6 @@ section { scroll-margin-top: 72px; }
   .g-val.g-larva { transform: translate(8px, 4px); }
   .g-fig { left: var(--mx, var(--x)); top: var(--my, var(--y)); }
   .g-fig-human .g-size { left: auto; right: 0; transform: none; }
-  .g-mag { font-size: 9.5px; margin-left: 3px; }
 }
 .nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
 .nums div { background: var(--surface); padding: 18px 20px; display: flex; flex-direction: column; gap: 4px; }
@@ -356,6 +358,9 @@ section { scroll-margin-top: 72px; }
 .parts .soon { align-self: flex-start; margin-top: auto; }
 @media (max-width: 860px) { .parts { grid-template-columns: minmax(0, 1fr); } }
 .sources { font-size: 12.5px; color: var(--muted); margin-top: 14px; }
+.sources summary { width: max-content; cursor: pointer; font: 500 12px var(--f-mono); letter-spacing: 0.04em; color: var(--muted); }
+.sources summary:hover { color: var(--ink); }
+.sources p { margin-top: 6px; }
 .cite { font-family: var(--f-mono); font-size: 13.5px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; overflow-wrap: anywhere; }
 
 /* home hero: what I analyze, each line leads to its project page */
@@ -432,22 +437,26 @@ section { scroll-margin-top: 72px; }
 .media-note ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
 
 /* dissertation: connectomics in the news */
-.news { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.news { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .news-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); display: flex; flex-direction: column; min-width: 0; overflow: hidden; }
-.news-card.lead { grid-column: span 2; }
 .news-img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; background: #0b0d10; border-bottom: 1px solid var(--line); }
 .news-img.contain { object-fit: contain; }
-.news-card.lead .news-img { aspect-ratio: 21 / 9; }
+.news .news-img { aspect-ratio: 2 / 1; }
 .news-body { flex: 1; padding: 16px 20px 18px; display: flex; flex-direction: column; gap: 8px; }
 .news-kicker { font: 500 11.5px var(--f-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
 .news-card h3 { font-size: 19px; line-height: 1.25; font-stretch: 105%; }
-.news-card.lead h3 { font-size: clamp(22px, 2.6vw, 28px); line-height: 1.15; }
 .news-card p { color: var(--muted); font-size: 15px; }
-.news-card.lead .news-body > p:not(.news-kicker) { font-size: 16px; max-width: 62ch; }
 .news-foot { margin-top: auto; padding-top: 6px; display: flex; flex-direction: column; gap: 8px; }
-.news-stat { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; }
-.news-card .news-stat b { font-family: var(--f-mono); font-size: 24px; font-weight: 500; color: var(--ink); font-variant-numeric: tabular-nums; }
-.news-card .news-stat span { font-size: 13.5px; }
+.news-links { flex-direction: row; flex-wrap: wrap; gap: 8px 18px; }
+.feed-strip { margin-top: 18px; display: flex; flex-direction: column; gap: 10px; }
+.feed-thumbs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 220px)); gap: 14px; }
+.feed-thumbs a { display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; line-height: 1.35; color: var(--muted); text-decoration: none; }
+.feed-thumbs img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); background: #0b0d10; }
+.feed-thumbs b { color: var(--ink); font-weight: 600; }
+.feed-thumbs span::after { content: "\00a0↗"; color: var(--accent); }
+.feed-thumbs a:hover b { color: var(--accent); }
+.feed-thumbs a:hover img { border-color: var(--accent); }
+@media (max-width: 560px) { .feed-thumbs { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; } .feed-thumbs a { font-size: 12px; } }
 .news-link { align-self: flex-start; font: 500 13px var(--f-mono); color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
 .news-link::after { content: "\00a0↗"; color: var(--accent); }
 .news-link.up::after { content: "\00a0↑"; }
@@ -529,7 +538,6 @@ li:hover > .inst { background-color: color-mix(in srgb, var(--brand), #fff var(-
 }
 @media (max-width: 860px) {
   .news { grid-template-columns: minmax(0, 1fr); }
-  .news-card.lead { grid-column: auto; }
   .news-img.contain { aspect-ratio: auto; }
   .bridge { grid-template-columns: minmax(0, 1fr); }
 }

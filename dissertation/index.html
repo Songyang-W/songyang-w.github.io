@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
-  <link rel="stylesheet" href="../assets/css/site.css?v=20261018-3">
+  <link rel="stylesheet" href="../assets/css/site.css?v=20261018-5">
   <script>try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}</script>
 </head>
 <body>
@@ -58,7 +58,6 @@
             <span><span class="dot dot-in"></span>Synapses received</span>
             <span><span class="dot dot-out"></span>Synapses sent</span>
           </span>
-          <span class="neuron-stats" id="neuron-stats" aria-live="polite"></span>
           <span class="neuron-note">Real neurons from my dataset. Drag to rotate.</span>
         </figcaption>
       </figure>
@@ -83,14 +82,13 @@
         <p>In 2026, fruit fly wiring maps from Google Research and its partners ended up in Doom, Wordle, Beat Saber and a virtual fly body. The stunts are fun, but the maps underneath took years to build.</p>
       </div>
       <div class="news">
-        <article class="news-card lead">
+        <article class="news-card">
           <img class="news-img" src="../assets/media/news/fly-doom.webp" width="960" height="540" loading="lazy" alt="Doom gameplay beside a 3D model of a fruit fly">
           <div class="news-body">
             <p class="news-kicker">Google Research · 404 Media · Sep 2026</p>
             <h3>The internet wired a fly brain map into Doom</h3>
-            <p>In September 2026, Google Research, Janelia and Cambridge published the first complete wiring map of a male fruit fly's brain and nerve cord. Within days, hobbyists hooked it up to Doom, Minecraft and Super Mario 64. A lot of hand-built code sits on top, so these are fun demos, not a fly that understands games.</p>
+            <p>Days after Google Research, Janelia and Cambridge released a 166,700-neuron male fly map, hobbyists hooked it up to Doom.</p>
             <div class="news-foot">
-              <p class="news-stat"><b>166,700</b><span>neurons in the male fly's brain and nerve cord</span></p>
               <a class="news-link" href="https://www.404media.co/a-digital-fly-brain-has-taken-over-the-internet/" target="_blank" rel="noopener">Read the 404 Media story</a>
             </div>
           </div>
@@ -100,46 +98,21 @@
           <div class="news-body">
             <p class="news-kicker">Eon Systems · Mar 2026</p>
             <h3>A startup said it uploaded a fly. Scientists pushed back.</h3>
-            <p>Eon's virtual fly walks, grooms and feeds, driven by a brain model built from the FlyWire wiring map. Scientists noted that a few hand-picked neurons steer ready-made motor controllers, and that the model's whole-brain activity had not been checked against a real fly's.</p>
-            <div class="news-foot">
-              <a class="news-link" href="https://www.linkedin.com/posts/rexsalisbury_outside-interests-weve-emulated-a-fruit-ugcPost-7436895816679825408-bAkm/" target="_blank" rel="noopener">Watch the demo on LinkedIn</a>
-              <a class="news-link" href="https://www.thetransmitter.org/systems-neuroscience/digital-sphinx-raises-questions-about-connectome-models/" target="_blank" rel="noopener">What scientists said, in The Transmitter</a>
+            <p>Its virtual fly walks and grooms on a FlyWire brain model, but a few hand-picked neurons do the steering.</p>
+            <div class="news-foot news-links">
+              <a class="news-link" href="https://www.linkedin.com/posts/rexsalisbury_outside-interests-weve-emulated-a-fruit-ugcPost-7436895816679825408-bAkm/" target="_blank" rel="noopener">Watch the demo</a>
+              <a class="news-link" href="https://www.thetransmitter.org/systems-neuroscience/digital-sphinx-raises-questions-about-connectome-models/" target="_blank" rel="noopener">What scientists said</a>
             </div>
           </div>
         </article>
-        <article class="news-card">
-          <img class="news-img" src="../assets/media/news/fly-wordle.webp" width="720" height="450" loading="lazy" alt="A virtual fly beside a Wordle board with the letters S and A filled in">
-          <div class="news-body">
-            <p class="news-kicker">LinkedIn · Sep 2026</p>
-            <h3>A fly brain map learned Wordle</h3>
-            <p>Dev Gaglani took the male fly map that Google Research helped release, fed letters into its smell neurons and tile colors into its vision neurons, then trained a readout on the brain's activity. It solves 99% of puzzles, in 4.1 guesses on average.</p>
-            <div class="news-foot">
-              <a class="news-link" href="https://www.linkedin.com/posts/gaglanidev_neuroscience-machinelearning-connectomics-ugcPost-7504888260783935489-I7or/" target="_blank" rel="noopener">See the post</a>
-            </div>
-          </div>
-        </article>
-        <article class="news-card">
-          <img class="news-img" src="../assets/media/news/fly-beat-saber.webp" width="720" height="450" loading="lazy" alt="A virtual fly holding a lightsaber in a Beat Saber level, beside a map of its brain activity">
-          <div class="news-body">
-            <p class="news-kicker">X, via LinkedIn · Sep 2026</p>
-            <h3>A fly brain map played Beat Saber</h3>
-            <p>A clip on X shows a virtual fly slicing blocks to music, with activity flickering across the 165,122 neurons of the male fly map beside it. Jean-Luc DeRieux's repost spread it on LinkedIn.</p>
-            <div class="news-foot">
-              <a class="news-link" href="https://www.linkedin.com/posts/jeanlucderieux_someone-on-x-taught-a-fruit-fly-to-play-beat-ugcPost-7503432550565040130-08Ji/" target="_blank" rel="noopener">See the post</a>
-            </div>
-          </div>
-        </article>
-        <article class="news-card">
-          <img class="news-img" src="../assets/media/news/fly-paint-dial.webp" width="720" height="450" loading="lazy" alt="A simulated fly at a joystick console above a watch dial with a drop of red paint on it">
-          <div class="news-body">
-            <p class="news-kicker">LinkedIn · Sep 2026</p>
-            <h3>A fly brain map painted a watch dial</h3>
-            <p>Taras Rumezhak put a simulated fly, run by the male fly map, at a joystick console that steers a paint dropper over a watch dial. He calls it a demo, not a biological claim.</p>
-            <div class="news-foot">
-              <a class="news-link" href="https://www.linkedin.com/posts/trumezhak_ai-neuroscience-robotics-ugcPost-7505244507521843201-SPkO/" target="_blank" rel="noopener">See the post</a>
-            </div>
-          </div>
-        </article>
+      </div>
+      <div class="feed-strip">
+        <p class="eyebrow">Also in the feed</p>
+        <ul class="feed-thumbs">
+          <li><a href="https://www.linkedin.com/posts/gaglanidev_neuroscience-machinelearning-connectomics-ugcPost-7504888260783935489-I7or/" target="_blank" rel="noopener"><img src="../assets/media/news/fly-wordle.webp" width="720" height="450" loading="lazy" alt="A virtual fly beside a Wordle board"><span><b>Wordle</b> · Dev Gaglani</span></a></li>
+          <li><a href="https://www.linkedin.com/posts/jeanlucderieux_someone-on-x-taught-a-fruit-fly-to-play-beat-ugcPost-7503432550565040130-08Ji/" target="_blank" rel="noopener"><img src="../assets/media/news/fly-beat-saber.webp" width="720" height="450" loading="lazy" alt="A virtual fly swinging a lightsaber in Beat Saber"><span><b>Beat Saber</b> · via Jean-Luc DeRieux</span></a></li>
+          <li><a href="https://www.linkedin.com/posts/trumezhak_ai-neuroscience-robotics-ugcPost-7505244507521843201-SPkO/" target="_blank" rel="noopener"><img src="../assets/media/news/fly-paint-dial.webp" width="720" height="450" loading="lazy" alt="A simulated fly at a console above a watch dial"><span><b>Painting a watch dial</b> · Taras Rumezhak</span></a></li>
+        </ul>
       </div>
 
       <div class="field" aria-labelledby="field-title">
@@ -197,7 +170,7 @@
           </ul>
         </figure>
       </div>
-      <p class="sources">Sources: Male fly central nervous system connectome, <a href="https://doi.org/10.1016/j.cell.2026.08.015" target="_blank" rel="noopener">Cell, Sep 2026</a> · 404 Media, Sep 2026 · P. Mineault, NeuroAI, Sep 2026 · Eon Systems, Mar 2026 · The Transmitter, 2026 · <a href="https://www.nature.com/articles/s41586-024-07558-y" target="_blank" rel="noopener">Dorkenwald et al., Nature 2024</a> (FlyWire) · LinkedIn posts by Rex Salisbury, Dev Gaglani, Jean-Luc DeRieux and Taras Rumezhak, 2026 · Timeline: White et al. 1986 · <a href="https://www.scientificamerican.com/article/the-u-s-government-launches-a-100-million-apollo-project-of-the-brain/" target="_blank" rel="noopener">Scientific American, 2016</a> (MICrONS) · Scheffer et al., eLife 2020 (hemibrain) · <a href="https://www.ninds.nih.gov/news-events/highlights-announcements/nih-brain-initiative-launches-projects-develop-innovative-technologies-map-brain-incredible-detail" target="_blank" rel="noopener">NIH, Sep 2023</a> · <a href="https://research.google/blog/google-research-embarks-on-effort-to-map-a-mouse-brain/" target="_blank" rel="noopener">Google Research, 2023</a> · Shapson-Coe et al., Science 2024 · <a href="https://alleninstitute.org/news/scientists-complete-largest-wiring-diagram-and-functional-map-of-the-brain-to-date" target="_blank" rel="noopener">Allen Institute, Apr 2025</a>. Images are from the linked stories and posts.</p>
+      <details class="sources"><summary>Sources</summary><p>Male fly central nervous system connectome, <a href="https://doi.org/10.1016/j.cell.2026.08.015" target="_blank" rel="noopener">Cell, Sep 2026</a> · 404 Media, Sep 2026 · P. Mineault, NeuroAI, Sep 2026 · Eon Systems, Mar 2026 · The Transmitter, 2026 · <a href="https://www.nature.com/articles/s41586-024-07558-y" target="_blank" rel="noopener">Dorkenwald et al., Nature 2024</a> (FlyWire) · LinkedIn posts by Rex Salisbury, Dev Gaglani, Jean-Luc DeRieux and Taras Rumezhak, 2026 · Timeline: White et al. 1986 · <a href="https://www.scientificamerican.com/article/the-u-s-government-launches-a-100-million-apollo-project-of-the-brain/" target="_blank" rel="noopener">Scientific American, 2016</a> (MICrONS) · Scheffer et al., eLife 2020 (hemibrain) · <a href="https://www.ninds.nih.gov/news-events/highlights-announcements/nih-brain-initiative-launches-projects-develop-innovative-technologies-map-brain-incredible-detail" target="_blank" rel="noopener">NIH, Sep 2023</a> · <a href="https://research.google/blog/google-research-embarks-on-effort-to-map-a-mouse-brain/" target="_blank" rel="noopener">Google Research, 2023</a> · Shapson-Coe et al., Science 2024 · <a href="https://alleninstitute.org/news/scientists-complete-largest-wiring-diagram-and-functional-map-of-the-brain-to-date" target="_blank" rel="noopener">Allen Institute, Apr 2025</a>. Images are from the linked stories and posts.</p></details>
     </section>
 
     <section class="band inner" id="connectomics" aria-labelledby="connectomics-title">
@@ -257,17 +230,20 @@
             <div class="g-fig g-fig-mouse" style="--x:55%;--y:52%;--w:13.9%" aria-hidden="true">
               <svg viewBox="0 0 114 50"><path class="g-body" d="M2,34 C4,28 11,24 20,22 C28,14 44,10 60,11 C80,12 97,21 100,33 C101,41 94,45 84,45 L30,45 C17,45 7,41 2,34 Z"/><circle class="g-body" cx="30" cy="16" r="6"/><path class="g-body-line" stroke-width="2.4" d="M99,37 C106,39 110,33 112,25"/><path class="g-body-line" stroke-width="2.4" d="M36,45 L34,49 M80,45 L82,49"/><ellipse class="g-brn" cx="23" cy="28" rx="6.4" ry="4.6"/></svg>
             </div>
-            <div class="g-fig g-fig-fly" style="--x:40%;--y:76%;--w:8.9%" aria-hidden="true">
-              <svg viewBox="0 0 100 64"><ellipse class="g-wing" cx="62" cy="15" rx="30" ry="9" transform="rotate(-14 62 15)"/><ellipse class="g-wing" cx="62" cy="49" rx="30" ry="9" transform="rotate(14 62 49)"/><path class="g-body-line" stroke-width="2" d="M30,26 L22,14 M34,26 L36,12 M40,27 L48,14 M30,38 L22,50 M34,38 L36,52 M40,37 L48,50"/><ellipse class="g-body" cx="66" cy="32" rx="24" ry="11"/><ellipse class="g-body" cx="35" cy="32" rx="12" ry="10"/><ellipse class="g-body" cx="14" cy="32" rx="8" ry="11"/><ellipse class="g-brn" cx="14" cy="32" rx="4.5" ry="8"/></svg>
-              <span class="g-mag">×25</span>
+            <!-- Zoom insets: worm, larva and fly at 30x the human/mouse scale (30 x 0.1198% = 3.594% of the plot width per mm).
+                 Each box is anchored at its data point and keeps a fixed aspect ratio, so the cone lines (drawn in the box's own
+                 0-100 space) meet the lens corners at any width. Drawing width = animal width / lens width. -->
+            <div class="g-zoom" style="left:10%;bottom:12.5%;width:9.5%;aspect-ratio:1.65" aria-hidden="true">
+              <svg class="g-cone" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="100" x2="34.7" y2="0"/><line x1="0" y1="100" x2="100" y2="43"/></svg>
+              <div class="g-lens" style="left:34.7%;top:0;width:65.3%;height:43%"><svg style="width:61.6%" viewBox="0 0 100 16"><path class="g-body-line" stroke-width="5" d="M3,9 C18,3 30,13 46,8 C62,3 76,12 97,7"/><circle class="g-brn" cx="10" cy="7.4" r="4"/></svg></div>
             </div>
-            <div class="g-fig g-fig-larva" style="--x:31.6%;--y:86%;--w:3.19%;--mx:20%;--my:66%" aria-hidden="true">
-              <svg viewBox="0 0 100 34"><path class="g-body" d="M4,17 C4,10 12,6 24,6 L80,7 C92,8 98,12 98,17 C98,22 92,26 80,27 L24,28 C12,28 4,24 4,17 Z"/><ellipse class="g-brn" cx="22" cy="17" rx="8" ry="7"/></svg>
-              <span class="g-mag">×25</span>
+            <div class="g-zoom" style="right:70%;top:78.2%;width:9.5%;aspect-ratio:1.9" aria-hidden="true">
+              <svg class="g-cone" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="100" y1="0" x2="0" y2="50"/><line x1="100" y1="0" x2="65.3" y2="100"/></svg>
+              <div class="g-lens" style="left:0;top:50%;width:65.3%;height:50%"><svg style="width:61.6%" viewBox="0 0 100 34"><path class="g-body" d="M4,17 C4,10 12,6 24,6 L80,7 C92,8 98,12 98,17 C98,22 92,26 80,27 L24,28 C12,28 4,24 4,17 Z"/><ellipse class="g-brn" cx="22" cy="17" rx="8" ry="7"/></svg></div>
             </div>
-            <div class="g-fig g-fig-worm" style="--x:13%;--y:72%;--w:3.19%" aria-hidden="true">
-              <svg viewBox="0 0 100 16"><path class="g-body-line" stroke-width="5" d="M3,9 C18,3 30,13 46,8 C62,3 76,12 97,7"/><circle class="g-brn" cx="10" cy="7.4" r="4"/></svg>
-              <span class="g-mag">×25</span>
+            <div class="g-zoom" style="left:41.5%;top:62.7%;width:13%;aspect-ratio:1.205" aria-hidden="true">
+              <svg class="g-cone" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="65.4" y1="0" x2="0" y2="28.6"/><line x1="65.4" y1="0" x2="100" y2="28.6"/></svg>
+              <div class="g-lens" style="left:0;top:28.6%;width:100%;height:71.4%"><svg style="width:82.3%" viewBox="0 0 100 64"><ellipse class="g-wing" cx="62" cy="15" rx="30" ry="9" transform="rotate(-14 62 15)"/><ellipse class="g-wing" cx="62" cy="49" rx="30" ry="9" transform="rotate(14 62 49)"/><path class="g-body-line" stroke-width="2" d="M30,26 L22,14 M34,26 L36,12 M40,27 L48,14 M30,38 L22,50 M34,38 L36,52 M40,37 L48,50"/><ellipse class="g-body" cx="66" cy="32" rx="24" ry="11"/><ellipse class="g-body" cx="35" cy="32" rx="12" ry="10"/><ellipse class="g-body" cx="14" cy="32" rx="8" ry="11"/><ellipse class="g-brn" cx="14" cy="32" rx="4.5" ry="8"/></svg></div>
             </div>
           </div>
           <div class="g-call up c-worm">
@@ -296,10 +272,10 @@
             <a class="news-link" href="https://h01-release.storage.googleapis.com/landing.html" target="_blank" rel="noopener">Explore the data</a>
           </div>
         </div>
-        <p class="ladder-note"><b>Red</b> brains have complete wiring maps: the worm in 1986, the fruit fly larva in 2023 and the adult fruit fly in 2024. Whole mouse and human brains are still far out of reach. In the drawings, brains are red and bodies gray. The human brain (about 17 cm) and the whole mouse (about 10 cm, with a 1.3 cm brain) share one scale. The worm, larva and fly are drawn 25 times larger, because their brains, each under 1 mm, would be smaller than a pixel.</p>
+        <p class="ladder-note"><b>Red</b> brains have complete wiring maps: the worm in 1986, the fruit fly larva in 2023 and the adult fruit fly in 2024. Whole mouse and human brains are still far out of reach. In the drawings, brains are red and bodies gray. The human brain (about 17 cm) and the whole mouse (about 10 cm, with a 1.3 cm brain) share one scale. The worm, larva and fly are zoomed in 30 times, because their brains, each under 1 mm, would be smaller than a pixel.</p>
       </figure>
 
-      <p class="sources">Sources: White et al. 1986 · Winding et al., Science 2023 · Dorkenwald et al., Nature 2024 · Herculano-Houzel et al. 2006 · Azevedo et al. 2009 · OpenWorm, via ScienceAlert · NSF, Mar 2023 · Eon Systems, Mar 2026 · <a href="https://www.science.org/doi/10.1126/science.adk4858" target="_blank" rel="noopener">Shapson-Coe et al., Science 2024</a> · Brain sizes: <a href="https://faculty.washington.edu/chudler/facts.html" target="_blank" rel="noopener">Brain Facts and Figures</a> (human), Allen Mouse Brain Common Coordinate Framework (mouse brain), <a href="https://phenome.jax.org/measures/25003" target="_blank" rel="noopener">JAX Mouse Phenome Database</a> (mouse body), UKRI, Oct 2024 (fly).</p>
+      <details class="sources"><summary>Sources</summary><p>White et al. 1986 · Winding et al., Science 2023 · Dorkenwald et al., Nature 2024 · Herculano-Houzel et al. 2006 · Azevedo et al. 2009 · OpenWorm, via ScienceAlert · NSF, Mar 2023 · Eon Systems, Mar 2026 · <a href="https://www.science.org/doi/10.1126/science.adk4858" target="_blank" rel="noopener">Shapson-Coe et al., Science 2024</a> · Brain sizes: <a href="https://faculty.washington.edu/chudler/facts.html" target="_blank" rel="noopener">Brain Facts and Figures</a> (human), Allen Mouse Brain Common Coordinate Framework (mouse brain), <a href="https://phenome.jax.org/measures/25003" target="_blank" rel="noopener">JAX Mouse Phenome Database</a> (mouse body), UKRI, Oct 2024 (fly).</p></details>
     </section>
 
     <section class="band inner" id="numbers" aria-labelledby="numbers-title">
@@ -455,11 +431,11 @@
     </div>
   </footer>
 
-  <script src="../assets/js/site.js?v=20261018-3"></script>
-  <script src="../assets/data/neurons.js?v=20261018-3"></script>
-  <script src="../assets/js/neuron.js?v=20261018-3"></script>
-  <script src="/assets/js/dissertation-chat.js"
+  <script src="../assets/js/site.js?v=20261018-5"></script>
+  <script src="../assets/data/neurons.js?v=20261018-5"></script>
+  <script src="../assets/js/neuron.js?v=20261018-5"></script>
+  <script src="/assets/js/dissertation-chat.js?v=20261018-5"
           data-endpoint="https://dissertation-guide.youzewang98.workers.dev/chat"
-          data-email="will.songyang.wang@gmail.com" defer></script>
+          data-email="will.songyang.wang@gmail.com" data-auto-open="2000" defer></script>
 </body>
 </html>
