@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ask About My Research | William (Songyang) Wang</title>
+<meta name="description" content="Ask an AI guide about my PhD research: mapping the wiring of a memory circuit in the mouse brain, synapse by synapse. Plain-language answers drawn from my dissertation, in English or Chinese.">
+<link rel="canonical" href="https://songyang-w.github.io/ask/">
+<meta name="theme-color" content="#0c0f14">
+
+<!-- Link preview on LinkedIn and other sites -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="William (Songyang) Wang">
+<meta property="og:title" content="Ask an AI about my PhD research">
+<meta property="og:description" content="I mapped the wiring of a memory circuit in the mouse brain, synapse by synapse. Ask questions in plain language and get answers drawn from my dissertation.">
+<meta property="og:url" content="https://songyang-w.github.io/ask/">
+<meta property="og:image" content="https://songyang-w.github.io/assets/media/415-neurons-1530.jpg">
+<meta property="og:image:alt" content="All 415 reconstructed neurons from the dissertation, rendered as colored branches">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+  :root {
+    --bg: #0c0f14; --text: #e8eaed; --muted: #9aa1ab; --line: #262c35; --accent: #ff7a45;
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --bg: #fafaf7; --text: #16181d; --muted: #5f656e; --line: #e2e4e8; --accent: #d9480f; }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--bg); color: var(--text);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+  .wrap {
+    min-height: 100vh; min-height: 100dvh;
+    max-width: 780px; margin: 0 auto;
+    padding: 16px 16px max(16px, env(safe-area-inset-bottom));
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  nav { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; }
+  nav a { color: var(--muted); text-decoration: none; }
+  nav a:hover, nav a:focus-visible { color: var(--text); text-decoration: underline; }
+  nav .name { color: var(--text); font-weight: 600; }
+  .intro h1 { font-size: clamp(24px, 4.5vw, 34px); line-height: 1.2; margin: 8px 0 8px; letter-spacing: -0.01em; }
+  .intro p { margin: 0; color: var(--muted); max-width: 62ch; }
+  .intro p strong { color: var(--text); font-weight: 600; }
+  #chat { flex: 1; min-height: 460px; display: flex; flex-direction: column; }
+  footer { font-size: 13px; color: var(--muted); }
+  footer a { color: inherit; }
+  @media (max-width: 520px) {
+    .intro p { font-size: 15px; }
+    #chat { min-height: 520px; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav aria-label="Site">
+      <a class="name" href="https://songyang-w.github.io/">William (Songyang) Wang</a>
+      <a href="https://songyang-w.github.io/dissertation/">Dissertation page &rarr;</a>
+    </nav>
+
+    <section class="intro">
+      <h1>Ask about my PhD research</h1>
+      <p>I recorded neurons in a mouse's touch cortex while it remembered and compared touches, then mapped the wiring between those same neurons with electron microscopy. <strong>Ask anything in plain language, in English or Chinese.</strong> An AI guide answers from my dissertation.</p>
+    </section>
+
+    <main id="chat" aria-label="Chat with the dissertation guide"></main>
+
+    <footer>
+      Ph.D. dissertation, Boston University, 2026. The guide can make mistakes, so check anything important against the
+      <a href="https://songyang-w.github.io/dissertation/">dissertation page</a>.
+    </footer>
+  </div>
+
+  <script src="/assets/js/dissertation-chat.js"
+          data-mode="page" data-mount="#chat"
+          data-endpoint="https://dissertation-guide.youzewang98.workers.dev/chat"
+          data-email="will.songyang.wang@gmail.com" defer></script>
+</body>
+</html>

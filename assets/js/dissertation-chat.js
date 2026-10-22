@@ -3,7 +3,8 @@
    <script src="/assets/js/dissertation-chat.js"
            data-endpoint="https://YOUR-WORKER.workers.dev/chat"
            data-email="will.songyang.wang@gmail.com" defer></script>
-   Optional: data-accent="#e4572e"  data-turnstile-sitekey="..." */
+   Optional: data-accent="#e4572e"  data-turnstile-sitekey="..."
+   Full-page mode (for a standalone page): data-mode="page" data-mount="#chat" */
 (function () {
   "use strict";
   var script = document.currentScript;
@@ -12,10 +13,17 @@
     email: (script && script.dataset.email) || "will.songyang.wang@gmail.com",
     accent: (script && script.dataset.accent) || "",
     sitekey: (script && script.dataset.turnstileSitekey) || "",
+    page: !!(script && script.dataset.mode === "page"),
+    mount: (script && script.dataset.mount) || "",
   };
+  // Where the question came from, for the stats page: "dissertation" or "ask",
+  // plus an optional ?ref=linkedin style tag from the page address.
+  var ref = "";
+  try { ref = (new URLSearchParams(location.search).get("ref") || "").toLowerCase().replace(/[^a-z0-9_-]/g, "").slice(0, 20); } catch (e) { /* old browser */ }
+  var source = (cfg.page ? "ask" : "dissertation") + (ref ? ":" + ref : "");
   if (!cfg.endpoint) { console.warn("dissertation-chat: missing data-endpoint"); return; }
 
-  var STORE_KEY = "dissertation-chat-v1";
+  var STORE_KEY = cfg.page ? "dissertation-chat-page-v1" : "dissertation-chat-v1";
   var STARTERS = [
     "What is this research about, in simple terms?",
     "What is connectomics, and why does it matter?",
@@ -28,7 +36,9 @@
 
   var host = document.createElement("div");
   host.id = "dissertation-chat";
-  document.body.appendChild(host);
+  var mountEl = cfg.page && cfg.mount ? document.querySelector(cfg.mount) : null;
+  if (mountEl) { host.style.cssText = "display:flex;flex:1;min-height:0"; mountEl.appendChild(host); }
+  else { cfg.page = false; document.body.appendChild(host); }
   var root = host.attachShadow({ mode: "open" });
 
   root.innerHTML =
@@ -71,6 +81,9 @@
     '.foot{padding:0 14px 10px;font-size:11.5px;color:var(--muted)}' +
     '.foot a{color:inherit}' +
     '@media (max-width:520px){.panel{right:16px;left:16px;bottom:16px;width:auto;max-width:none;height:calc(100vh - 32px);height:calc(100dvh - 32px)}.launch{right:16px;bottom:16px}}' +
+    '.w.page{flex:1;display:flex;min-height:0}' +
+    '.page .launch,.page .x,.page .head{display:none}' +
+    '.page .panel,.page.open .panel{display:flex;position:relative;inset:auto;right:auto;left:auto;bottom:auto;width:100%;max-width:none;height:auto;flex:1;min-height:0;box-shadow:none;border-radius:16px}' +
     '</style>' +
     '<div class="w">' +
     '<button class="launch" type="button" aria-label="Ask about this research">' +
@@ -87,6 +100,7 @@
     '</section></div>';
 
   var w = root.querySelector(".w");
+  if (cfg.page) w.classList.add("page", "open");
   var launch = root.querySelector(".launch");
   var closeBtn = root.querySelector(".x");
   var log = root.querySelector(".log");
@@ -96,7 +110,7 @@
 
   launch.addEventListener("click", function () { w.classList.add("open"); render(); input.focus(); });
   closeBtn.addEventListener("click", function () { w.classList.remove("open"); launch.focus(); });
-  root.addEventListener("keydown", function (e) { if (e.key === "Escape" && w.classList.contains("open")) closeBtn.click(); });
+  root.addEventListener("keydown", function (e) { if (!cfg.page && e.key === "Escape" && w.classList.contains("open")) closeBtn.click(); });
   form.addEventListener("submit", function (e) { e.preventDefault(); ask(input.value); });
   input.addEventListener("keydown", function (e) {
     if (e.key === "Enter" && !e.shiftKey && !e.isComposing) { e.preventDefault(); ask(input.value); }
@@ -122,6 +136,8 @@
   new MutationObserver(function () { setTimeout(syncTheme, 50); })
     .observe(document.body, { attributes: true, attributeFilter: ["class", "data-theme", "style"] });
   if (window.matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListener("change", syncTheme);
+
+  if (cfg.page) setTimeout(render, 0);
 
   function render() {
     log.innerHTML = "";
@@ -176,7 +192,7 @@
       return fetch(cfg.endpoint, {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ messages: history, turnstileToken: token }),
+        body: JSON.stringify({ messages: history, turnstileToken: token, source: source }),
       });
     }).then(function (res) {
       return res.json().catch(function () { return { code: "error" }; });
