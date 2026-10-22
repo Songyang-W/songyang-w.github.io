@@ -3,8 +3,7 @@
    <script src="/assets/js/dissertation-chat.js"
            data-endpoint="https://YOUR-WORKER.workers.dev/chat"
            data-email="will.songyang.wang@gmail.com" defer></script>
-   Optional: data-accent="#e4572e"  data-turnstile-sitekey="..."
-             data-auto-open="2000" opens the panel by itself after 2 s, once per visit, on screens 700px and wider */
+   Optional: data-accent="#e4572e"  data-turnstile-sitekey="..." */
 (function () {
   "use strict";
   var script = document.currentScript;
@@ -13,7 +12,6 @@
     email: (script && script.dataset.email) || "will.songyang.wang@gmail.com",
     accent: (script && script.dataset.accent) || "",
     sitekey: (script && script.dataset.turnstileSitekey) || "",
-    autoOpen: script ? script.dataset.autoOpen : undefined,
   };
   if (!cfg.endpoint) { console.warn("dissertation-chat: missing data-endpoint"); return; }
 
@@ -55,6 +53,7 @@
     '.msg p{margin:0 0 8px}.msg p:last-child{margin:0}.msg ul{margin:4px 0 8px;padding-left:20px}.msg li{margin:2px 0}' +
     '.user{align-self:flex-end;background:var(--accent);color:var(--onaccent);border-bottom-right-radius:4px}' +
     '.bot{align-self:flex-start;background:var(--bubble);border-bottom-left-radius:4px}' +
+    '.by{font-size:11.5px;color:var(--muted);margin-top:6px}' +
     '.note{align-self:center;font-size:13px;color:var(--muted);text-align:center;max-width:95%}' +
     '.intro{color:var(--muted);font-size:14px;margin:0}' +
     '.chips{display:flex;flex-direction:column;gap:8px}' +
@@ -124,21 +123,6 @@
     .observe(document.body, { attributes: true, attributeFilter: ["class", "data-theme", "style"] });
   if (window.matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListener("change", syncTheme);
 
-  // Optional: open by itself once per visit. Skipped on phones, where the panel would cover the whole page,
-  // and it does not take keyboard focus, so the visitor can keep reading or close it.
-  var AUTO_KEY = STORE_KEY + "-auto-opened";
-  if (cfg.autoOpen != null && window.matchMedia && matchMedia("(min-width: 700px)").matches) {
-    var opened = false;
-    try { opened = sessionStorage.getItem(AUTO_KEY) === "1"; } catch (e) { /* storage off */ }
-    if (!opened) {
-      setTimeout(function () {
-        if (w.classList.contains("open")) return;
-        w.classList.add("open"); render();
-        try { sessionStorage.setItem(AUTO_KEY, "1"); } catch (e) { /* storage off */ }
-      }, Math.max(0, Number(cfg.autoOpen) || 0));
-    }
-  }
-
   function render() {
     log.innerHTML = "";
     if (!messages.length) {
@@ -165,6 +149,11 @@
     if (m.kind === "note") { d.className = "note"; d.textContent = m.content; return d; }
     d.className = "msg " + (m.role === "user" ? "user" : "bot");
     if (m.role === "user") d.textContent = m.content; else d.innerHTML = md(m.content);
+    if (m.role === "assistant" && m.model) {
+      var by = document.createElement("div");
+      by.className = "by"; by.textContent = "Answered by " + m.model;
+      d.appendChild(by);
+    }
     return d;
   }
 
@@ -193,7 +182,7 @@
       return res.json().catch(function () { return { code: "error" }; });
     }).then(function (data) {
       if (data && data.reply) {
-        messages.push({ role: "assistant", content: data.reply });
+        messages.push({ role: "assistant", content: data.reply, model: data.model || "" });
         if (data.remaining === 3) messages.push({ kind: "note", content: "You can ask 3 more questions today." });
       } else {
         messages.pop(); // let the visitor retry the same question later
